@@ -24,6 +24,17 @@ public class InterfazDealership extends javax.swing.JFrame {
 	Class.forName("com.mysql.jdbc.Driver").newInstance();
         connection = DriverManager.getConnection(url, username, password);
         //Con connection ya implementas cualquier statement que querras
+        PreparedStatement ps = connection.prepareStatement("INSERT INTO mydb.Planta_de_Fabricacion\n"
+                + "(idPlanta,Ubicacion,Name,Tipo)\n"
+                + "VALUES\n"
+                + "(25,'Honduras','Planta Tura','Ensamblaje');");
+        int status = ps.executeUpdate();
+        if (status != 0) {
+            System.out.println("Conexion successfull");
+            System.out.println("Inserted");
+        } else {
+            System.out.println("No conexion");
+        }
     }
 
     /**

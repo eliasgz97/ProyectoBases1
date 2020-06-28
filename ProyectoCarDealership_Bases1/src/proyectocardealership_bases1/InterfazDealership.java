@@ -1,27 +1,35 @@
-
 package proyectocardealership_bases1;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-
-
+import javax.swing.JOptionPane;
 
 public class InterfazDealership extends javax.swing.JFrame {
 
     static Connection connection = null;
     static String databaseName = "proyectobasededatos-281400:us-central1:proyecto-1bases1";
-    static String url = "jdbc:mysql://35.239.132.203:3306/" + "mydb" + "?autoReconnect=true&useSSL=false";;
+    static String url = "jdbc:mysql://35.239.132.203:3306/" + "mydb" + "?autoReconnect=true&useSSL=false";
+    ;
     static String username = "proyecto-1bases1";
     static String password = "root";
-    public InterfazDealership() throws ClassNotFoundException, InstantiationException, IllegalAccessException, SQLException{
+
+    public InterfazDealership() throws ClassNotFoundException, InstantiationException, IllegalAccessException, SQLException {
         initComponents();
-	Class.forName("com.mysql.jdbc.Driver").newInstance();
+
+        jtp_main.setEnabledAt(0, false);
+        jtp_main.setEnabledAt(1, false);
+        jtp_main.setEnabledAt(2, false);
+        jtp_main.setEnabledAt(3, false);
+
+        Class.forName("com.mysql.jdbc.Driver").newInstance();
         connection = DriverManager.getConnection(url, username, password);
         //Con connection ya implementas cualquier statement que querras
         /*
@@ -36,8 +44,8 @@ public class InterfazDealership extends javax.swing.JFrame {
         } else {
             System.out.println("No connection");
         }
-        */
-        
+         */
+
     }
 
     /**
@@ -53,22 +61,30 @@ public class InterfazDealership extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jtxt_usuario = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
-        jtxt_contrasena = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
+        jrb_cliente = new javax.swing.JRadioButton();
+        jrb_conse = new javax.swing.JRadioButton();
+        jrb_market = new javax.swing.JRadioButton();
+        jrb_admin = new javax.swing.JRadioButton();
+        jtxt_contrasena = new javax.swing.JPasswordField();
+        buttonGroup1 = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
         jtp_main = new javax.swing.JTabbedPane();
         Cliente_JP = new javax.swing.JPanel();
         Ubicacion_Vehiculos_JP = new javax.swing.JPanel();
         Informes_Ventas_JP = new javax.swing.JPanel();
         admin_JP = new javax.swing.JPanel();
+        Ingresar = new javax.swing.JPanel();
 
-        jtxt_usuario.setText("Ingrese su usuario");
+        jtxt_usuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jtxt_usuarioActionPerformed(evt);
+            }
+        });
 
         jLabel1.setText("USUARIO");
-
-        jtxt_contrasena.setText("Ingrese contraseña");
 
         jLabel2.setText("Contraseña");
 
@@ -76,47 +92,86 @@ public class InterfazDealership extends javax.swing.JFrame {
         jLabel3.setText("LOGIN");
 
         jButton1.setText("Ingresar");
+        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton1MouseClicked(evt);
+            }
+        });
+
+        buttonGroup1.add(jrb_cliente);
+        jrb_cliente.setText("Cliente");
+        jrb_cliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jrb_clienteActionPerformed(evt);
+            }
+        });
+
+        buttonGroup1.add(jrb_conse);
+        jrb_conse.setText("Consecionario");
+
+        buttonGroup1.add(jrb_market);
+        jrb_market.setText("Dpt Marketing");
+
+        buttonGroup1.add(jrb_admin);
+        jrb_admin.setText("Admin");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap(93, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(jLabel2)
-                                .addGap(26, 26, 26)
-                                .addComponent(jtxt_contrasena, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(65, 65, 65)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addComponent(jLabel1)
-                                .addGap(26, 26, 26)
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel3)
-                                    .addComponent(jtxt_usuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addGap(109, 109, 109))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addComponent(jButton1)
-                        .addGap(162, 162, 162))))
+                                    .addGroup(jPanel2Layout.createSequentialGroup()
+                                        .addGap(26, 26, 26)
+                                        .addComponent(jLabel3)
+                                        .addGap(21, 21, 21))
+                                    .addGroup(jPanel2Layout.createSequentialGroup()
+                                        .addGap(28, 28, 28)
+                                        .addComponent(jtxt_usuario, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
+                                .addComponent(jLabel2)
+                                .addGap(18, 18, 18)
+                                .addComponent(jtxt_contrasena))))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(120, 120, 120)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jrb_conse)
+                            .addComponent(jrb_market)
+                            .addComponent(jrb_cliente, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jrb_admin, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jButton1, javax.swing.GroupLayout.Alignment.LEADING))))
+                .addContainerGap(145, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(70, 70, 70)
+                .addGap(49, 49, 49)
                 .addComponent(jLabel3)
-                .addGap(48, 48, 48)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1)
-                    .addComponent(jtxt_usuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(36, 36, 36)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jtxt_usuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1))
+                .addGap(23, 23, 23)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(jtxt_contrasena, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(34, 34, 34)
+                .addGap(29, 29, 29)
+                .addComponent(jrb_cliente)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jrb_conse)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jrb_market)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jrb_admin)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
                 .addComponent(jButton1)
-                .addContainerGap(81, Short.MAX_VALUE))
+                .addGap(24, 24, 24))
         );
 
         javax.swing.GroupLayout Login_JDLayout = new javax.swing.GroupLayout(Login_JD.getContentPane());
@@ -138,6 +193,8 @@ public class InterfazDealership extends javax.swing.JFrame {
             }
         });
 
+        Cliente_JP.setEnabled(false);
+
         javax.swing.GroupLayout Cliente_JPLayout = new javax.swing.GroupLayout(Cliente_JP);
         Cliente_JP.setLayout(Cliente_JPLayout);
         Cliente_JPLayout.setHorizontalGroup(
@@ -150,6 +207,8 @@ public class InterfazDealership extends javax.swing.JFrame {
         );
 
         jtp_main.addTab("Cliente", Cliente_JP);
+
+        Ubicacion_Vehiculos_JP.setEnabled(false);
 
         javax.swing.GroupLayout Ubicacion_Vehiculos_JPLayout = new javax.swing.GroupLayout(Ubicacion_Vehiculos_JP);
         Ubicacion_Vehiculos_JP.setLayout(Ubicacion_Vehiculos_JPLayout);
@@ -164,6 +223,8 @@ public class InterfazDealership extends javax.swing.JFrame {
 
         jtp_main.addTab("Ubicación de Vehículos", Ubicacion_Vehiculos_JP);
 
+        Informes_Ventas_JP.setEnabled(false);
+
         javax.swing.GroupLayout Informes_Ventas_JPLayout = new javax.swing.GroupLayout(Informes_Ventas_JP);
         Informes_Ventas_JP.setLayout(Informes_Ventas_JPLayout);
         Informes_Ventas_JPLayout.setHorizontalGroup(
@@ -177,6 +238,8 @@ public class InterfazDealership extends javax.swing.JFrame {
 
         jtp_main.addTab("Informes de Ventas", Informes_Ventas_JP);
 
+        admin_JP.setEnabled(false);
+
         javax.swing.GroupLayout admin_JPLayout = new javax.swing.GroupLayout(admin_JP);
         admin_JP.setLayout(admin_JPLayout);
         admin_JPLayout.setHorizontalGroup(
@@ -189,6 +252,25 @@ public class InterfazDealership extends javax.swing.JFrame {
         );
 
         jtp_main.addTab("Administrador", admin_JP);
+
+        Ingresar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                IngresarMouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout IngresarLayout = new javax.swing.GroupLayout(Ingresar);
+        Ingresar.setLayout(IngresarLayout);
+        IngresarLayout.setHorizontalGroup(
+            IngresarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 578, Short.MAX_VALUE)
+        );
+        IngresarLayout.setVerticalGroup(
+            IngresarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 512, Short.MAX_VALUE)
+        );
+
+        jtp_main.addTab("Ingresar", Ingresar);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -216,13 +298,82 @@ public class InterfazDealership extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jtp_mainMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtp_mainMouseClicked
-        
+
+
     }//GEN-LAST:event_jtp_mainMouseClicked
+
+    private void jrb_clienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jrb_clienteActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jrb_clienteActionPerformed
+
+    private void jtxt_usuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtxt_usuarioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jtxt_usuarioActionPerformed
+
+    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+        if (jrb_cliente.isSelected()) {
+            if (jtxt_usuario.getText().equals(clname) && jtxt_contrasena.getText().equals(clpass)) {
+                jtp_main.setEnabledAt(0, false);
+                jtp_main.setEnabledAt(1, true);
+                jtp_main.setEnabledAt(2, false);
+                jtp_main.setEnabledAt(3, false);
+            } else {
+                JOptionPane.showMessageDialog(this, "Acceso denegado, revise los datos");
+            }
+
+        } else if (jrb_conse.isSelected()) {
+            if (jtxt_usuario.getText().equals(consename) && jtxt_contrasena.getText().equals(consepass)) {
+
+                jtp_main.setEnabledAt(0, false);
+                jtp_main.setEnabledAt(1, true);
+                jtp_main.setEnabledAt(2, false);
+                jtp_main.setEnabledAt(3, false);
+            }else{
+                JOptionPane.showMessageDialog(this, "Acceso denegado, revise los datos");
+                System.out.println(jtxt_usuario.getText());
+                System.out.println(jtxt_contrasena.getText());
+            }
+        } else if (jrb_market.isSelected()) {
+            if (jtxt_usuario.getText().equals(mkname) && jtxt_contrasena.getText().equals(mkpass)) {
+                jtp_main.setEnabledAt(0, false);
+                jtp_main.setEnabledAt(1, false);
+                jtp_main.setEnabledAt(2, true);
+                jtp_main.setEnabledAt(3, false);
+            }else{
+                JOptionPane.showMessageDialog(this, "Acceso denegado, revise los datos");
+                System.out.println(jtxt_usuario.getText());
+                System.out.println(jtxt_contrasena.getText());
+            }
+        } else if (jrb_admin.isSelected()) {
+            if (jtxt_usuario.getText().equals(adname) && jtxt_contrasena.getText().equals(adpass)) {
+                JOptionPane.showMessageDialog(this, "Bienvenido administrador");
+                jtp_main.setEnabledAt(0, true);
+                jtp_main.setEnabledAt(1, true);
+                jtp_main.setEnabledAt(2, true);
+                jtp_main.setEnabledAt(3, true);
+
+            } else {
+                JOptionPane.showMessageDialog(this, "Acceso denegado, revise los datos");
+                System.out.println(jtxt_usuario.getText());
+                System.out.println(jtxt_contrasena.getText());
+
+            }
+        }
+        Login_JD.setVisible(false);
+    }//GEN-LAST:event_jButton1MouseClicked
+
+    private void IngresarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_IngresarMouseClicked
+        Login_JD.setModal(true);
+        Login_JD.pack();
+        Login_JD.setLocationRelativeTo(this);
+        Login_JD.setVisible(true);
+    }//GEN-LAST:event_IngresarMouseClicked
 
     /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
+
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -247,9 +398,9 @@ public class InterfazDealership extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
+
                 try {
                     new InterfazDealership().setVisible(true);
                 } catch (ClassNotFoundException ex) {
@@ -261,25 +412,42 @@ public class InterfazDealership extends javax.swing.JFrame {
                 } catch (SQLException ex) {
                     Logger.getLogger(InterfazDealership.class.getName()).log(Level.SEVERE, null, ex);
                 }
-                
+
             }
         });
+
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Cliente_JP;
     private javax.swing.JPanel Informes_Ventas_JP;
+    private javax.swing.JPanel Ingresar;
     private javax.swing.JDialog Login_JD;
     private javax.swing.JPanel Ubicacion_Vehiculos_JP;
     private javax.swing.JPanel admin_JP;
+    private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JRadioButton jrb_admin;
+    private javax.swing.JRadioButton jrb_cliente;
+    private javax.swing.JRadioButton jrb_conse;
+    private javax.swing.JRadioButton jrb_market;
     private javax.swing.JTabbedPane jtp_main;
-    private javax.swing.JTextField jtxt_contrasena;
+    private javax.swing.JPasswordField jtxt_contrasena;
     private javax.swing.JTextField jtxt_usuario;
     // End of variables declaration//GEN-END:variables
+
+    String adname = "DanielRC";
+    String adpass = "1234";
+    String clname = "Cliente1";
+    String clpass = "12345";
+    String consename = "Conse1";
+    String consepass = "123456";
+    String mkname = "market1";
+    String mkpass = "1234";
+
 }

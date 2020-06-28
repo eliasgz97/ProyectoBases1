@@ -4,13 +4,19 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.Vector;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
 
 public class InterfazDealership extends javax.swing.JFrame {
 
@@ -20,6 +26,7 @@ public class InterfazDealership extends javax.swing.JFrame {
     ;
     static String username = "proyecto-1bases1";
     static String password = "root";
+    static Statement stmt;
 
     public InterfazDealership() throws ClassNotFoundException, InstantiationException, IllegalAccessException, SQLException {
         initComponents();
@@ -28,10 +35,12 @@ public class InterfazDealership extends javax.swing.JFrame {
         jtp_main.setEnabledAt(1, false);
         jtp_main.setEnabledAt(2, false);
         jtp_main.setEnabledAt(3, false);
+        
 
         Class.forName("com.mysql.jdbc.Driver").newInstance();
         connection = DriverManager.getConnection(url, username, password);
         //Con connection ya implementas cualquier statement que querras
+        stmt = connection.createStatement();
         /*
         PreparedStatement ps = connection.prepareStatement("INSERT INTO mydb.Planta_de_Fabricacion\n"
                 + "(idPlanta,Ubicacion,Name,Tipo)\n"
@@ -63,7 +72,7 @@ public class InterfazDealership extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        jbt_login = new javax.swing.JButton();
         jrb_cliente = new javax.swing.JRadioButton();
         jrb_conse = new javax.swing.JRadioButton();
         jrb_market = new javax.swing.JRadioButton();
@@ -91,10 +100,10 @@ public class InterfazDealership extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel3.setText("LOGIN");
 
-        jButton1.setText("Ingresar");
-        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+        jbt_login.setText("Ingresar");
+        jbt_login.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton1MouseClicked(evt);
+                jbt_loginMouseClicked(evt);
             }
         });
 
@@ -129,8 +138,7 @@ public class InterfazDealership extends javax.swing.JFrame {
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(jPanel2Layout.createSequentialGroup()
                                         .addGap(26, 26, 26)
-                                        .addComponent(jLabel3)
-                                        .addGap(21, 21, 21))
+                                        .addComponent(jLabel3))
                                     .addGroup(jPanel2Layout.createSequentialGroup()
                                         .addGap(28, 28, 28)
                                         .addComponent(jtxt_usuario, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))))
@@ -145,7 +153,7 @@ public class InterfazDealership extends javax.swing.JFrame {
                             .addComponent(jrb_market)
                             .addComponent(jrb_cliente, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jrb_admin, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton1, javax.swing.GroupLayout.Alignment.LEADING))))
+                            .addComponent(jbt_login, javax.swing.GroupLayout.Alignment.LEADING))))
                 .addContainerGap(145, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -170,7 +178,7 @@ public class InterfazDealership extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jrb_admin)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
-                .addComponent(jButton1)
+                .addComponent(jbt_login)
                 .addGap(24, 24, 24))
         );
 
@@ -239,6 +247,11 @@ public class InterfazDealership extends javax.swing.JFrame {
         jtp_main.addTab("Informes de Ventas", Informes_Ventas_JP);
 
         admin_JP.setEnabled(false);
+        admin_JP.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                admin_JPMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout admin_JPLayout = new javax.swing.GroupLayout(admin_JP);
         admin_JP.setLayout(admin_JPLayout);
@@ -298,7 +311,7 @@ public class InterfazDealership extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jtp_mainMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtp_mainMouseClicked
-
+        
 
     }//GEN-LAST:event_jtp_mainMouseClicked
 
@@ -310,7 +323,7 @@ public class InterfazDealership extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jtxt_usuarioActionPerformed
 
-    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+    private void jbt_loginMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jbt_loginMouseClicked
         if (jrb_cliente.isSelected()) {
             if (jtxt_usuario.getText().equals(clname) && jtxt_contrasena.getText().equals(clpass)) {
                 jtp_main.setEnabledAt(0, false);
@@ -328,7 +341,7 @@ public class InterfazDealership extends javax.swing.JFrame {
                 jtp_main.setEnabledAt(1, true);
                 jtp_main.setEnabledAt(2, false);
                 jtp_main.setEnabledAt(3, false);
-            }else{
+            } else {
                 JOptionPane.showMessageDialog(this, "Acceso denegado, revise los datos");
                 System.out.println(jtxt_usuario.getText());
                 System.out.println(jtxt_contrasena.getText());
@@ -339,7 +352,7 @@ public class InterfazDealership extends javax.swing.JFrame {
                 jtp_main.setEnabledAt(1, false);
                 jtp_main.setEnabledAt(2, true);
                 jtp_main.setEnabledAt(3, false);
-            }else{
+            } else {
                 JOptionPane.showMessageDialog(this, "Acceso denegado, revise los datos");
                 System.out.println(jtxt_usuario.getText());
                 System.out.println(jtxt_contrasena.getText());
@@ -360,7 +373,7 @@ public class InterfazDealership extends javax.swing.JFrame {
             }
         }
         Login_JD.setVisible(false);
-    }//GEN-LAST:event_jButton1MouseClicked
+    }//GEN-LAST:event_jbt_loginMouseClicked
 
     private void IngresarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_IngresarMouseClicked
         Login_JD.setModal(true);
@@ -368,6 +381,18 @@ public class InterfazDealership extends javax.swing.JFrame {
         Login_JD.setLocationRelativeTo(this);
         Login_JD.setVisible(true);
     }//GEN-LAST:event_IngresarMouseClicked
+
+    private void admin_JPMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_admin_JPMouseClicked
+        
+        try {
+            ResultSet rs = stmt.executeQuery("select * from Planta_de_Fabricacion");
+            JTable table_prueba = new JTable(buildTableModel(rs));
+            System.out.println("holis");
+            JOptionPane.showMessageDialog(null, new JScrollPane(table_prueba));
+        } catch (SQLException ex) {
+            Logger.getLogger(InterfazDealership.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_admin_JPMouseClicked
 
     /**
      * @param args the command line arguments
@@ -426,12 +451,12 @@ public class InterfazDealership extends javax.swing.JFrame {
     private javax.swing.JPanel Ubicacion_Vehiculos_JP;
     private javax.swing.JPanel admin_JP;
     private javax.swing.ButtonGroup buttonGroup1;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JButton jbt_login;
     private javax.swing.JRadioButton jrb_admin;
     private javax.swing.JRadioButton jrb_cliente;
     private javax.swing.JRadioButton jrb_conse;
@@ -449,5 +474,28 @@ public class InterfazDealership extends javax.swing.JFrame {
     String consepass = "123456";
     String mkname = "market1";
     String mkpass = "1234";
+
+    public static DefaultTableModel buildTableModel(ResultSet rs)
+            throws SQLException {
+
+        ResultSetMetaData metaData = rs.getMetaData();
+
+        // names of columns
+        Vector<String> columnNames = new Vector<String>();
+        int columnCount = metaData.getColumnCount();
+        for (int column = 1; column <= columnCount; column++) {
+            columnNames.add(metaData.getColumnName(column));
+        }
+        // data of the table
+        Vector<Vector<Object>> data = new Vector<Vector<Object>>();
+        while (rs.next()) {
+            Vector<Object> vector = new Vector<Object>();
+            for (int columnIndex = 1; columnIndex <= columnCount; columnIndex++) {
+                vector.add(rs.getObject(columnIndex));
+            }
+            data.add(vector);
+        }
+        return new DefaultTableModel(data, columnNames);
+    }
 
 }

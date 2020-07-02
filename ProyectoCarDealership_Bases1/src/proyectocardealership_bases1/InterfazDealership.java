@@ -1,6 +1,7 @@
 package proyectocardealership_bases1;
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -35,12 +36,13 @@ public class InterfazDealership extends javax.swing.JFrame {
 
     public InterfazDealership() throws ClassNotFoundException, InstantiationException, IllegalAccessException, SQLException {
         initComponents();
-
+        
         jtp_main.setEnabledAt(0, false);
         jtp_main.setEnabledAt(1, false);
         jtp_main.setEnabledAt(2, false);
         jtp_main.setEnabledAt(3, false);
-
+        jtxt_usuario.setText("DanielRC");
+        jpf_contrasena.setText("1234");
         /*
         PreparedStatement ps = connection.prepareStatement("INSERT INTO mydb.Planta_de_Fabricacion\n"
                 + "(idPlanta,Ubicacion,Name,Tipo)\n"
@@ -82,6 +84,7 @@ public class InterfazDealership extends javax.swing.JFrame {
         jtxt_direccioncliente = new javax.swing.JTextField();
         jcbx_idconcesionario = new javax.swing.JComboBox<>();
         jbt_crearcliente = new javax.swing.JButton();
+        rb_empresacliente = new javax.swing.JRadioButton();
         jd_CrearConcesionario = new javax.swing.JDialog();
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
@@ -137,6 +140,8 @@ public class InterfazDealership extends javax.swing.JFrame {
         jtxt_nombrepieza = new javax.swing.JTextField();
         jcbx_idmodelopieza = new javax.swing.JComboBox<>();
         jbt_insertarpieza = new javax.swing.JButton();
+        jLabel65 = new javax.swing.JLabel();
+        jcbx_correoproveedorhaspieza = new javax.swing.JComboBox<>();
         jd_CrearProveedor = new javax.swing.JDialog();
         jLabel50 = new javax.swing.JLabel();
         jLabel51 = new javax.swing.JLabel();
@@ -152,15 +157,18 @@ public class InterfazDealership extends javax.swing.JFrame {
         jLabel55 = new javax.swing.JLabel();
         jLabel56 = new javax.swing.JLabel();
         jLabel57 = new javax.swing.JLabel();
+        jtxt_VIN = new javax.swing.JTextField();
+        jcbx_correoconcesionariovehiculo = new javax.swing.JComboBox<>();
+        jcbx_codigomarcavehiculo = new javax.swing.JComboBox<>();
+        jcbx_plantadefabricacionvehiculo = new javax.swing.JComboBox<>();
+        jbt_insertarvehiculo = new javax.swing.JButton();
+        jbt_generarvincode = new javax.swing.JButton();
+        jtxt_numeracion = new javax.swing.JTextField();
         jLabel58 = new javax.swing.JLabel();
         jLabel59 = new javax.swing.JLabel();
-        jtxt_VIN = new javax.swing.JTextField();
-        jcbx_corroconcesionariovehiculo = new javax.swing.JComboBox<>();
-        jcbx_codigomarcavehiculo = new javax.swing.JComboBox<>();
-        jcbx_idplantadefabricacion = new javax.swing.JComboBox<>();
-        jtxt_fecha = new javax.swing.JTextField();
-        jtxt_hora = new javax.swing.JTextField();
-        jbt_insertarvehiculo = new javax.swing.JButton();
+        jcbx_modelovehiculo = new javax.swing.JComboBox<>();
+        jLabel97 = new javax.swing.JLabel();
+        jtxt_estadovehiculo = new javax.swing.JTextField();
         jd_CrearPlanta = new javax.swing.JDialog();
         jLabel60 = new javax.swing.JLabel();
         jLabel61 = new javax.swing.JLabel();
@@ -172,15 +180,8 @@ public class InterfazDealership extends javax.swing.JFrame {
         jtxt_nombreplanta = new javax.swing.JTextField();
         jtxt_tipo = new javax.swing.JTextField();
         jbt_ingresarplantadefabricacion = new javax.swing.JButton();
-        jd_proveedor_pieza = new javax.swing.JDialog();
-        jLabel65 = new javax.swing.JLabel();
-        jLabel66 = new javax.swing.JLabel();
-        jLabel67 = new javax.swing.JLabel();
-        jcbx_correoproveedortienepieza = new javax.swing.JComboBox<>();
-        jcbx_modelopiezaproveedorpieza = new javax.swing.JComboBox<>();
-        jbt_insertarproveedorpieza = new javax.swing.JButton();
-        Btg_Sexo = new javax.swing.ButtonGroup();
-        jD_ventanaCRUD = new javax.swing.JDialog();
+        Btg_tipo = new javax.swing.ButtonGroup();
+        jd_ventanaCRUD = new javax.swing.JDialog();
         jPanel3 = new javax.swing.JPanel();
         jLabel21 = new javax.swing.JLabel();
         jLabel33 = new javax.swing.JLabel();
@@ -212,6 +213,8 @@ public class InterfazDealership extends javax.swing.JFrame {
         jLabel29 = new javax.swing.JLabel();
         jLabel32 = new javax.swing.JLabel();
         jRB_cliente = new javax.swing.JRadioButton();
+        jRB_venta = new javax.swing.JRadioButton();
+        jLabel90 = new javax.swing.JLabel();
         btg_entidades = new javax.swing.ButtonGroup();
         btg_transmision = new javax.swing.ButtonGroup();
         jd_modificarCliente = new javax.swing.JDialog();
@@ -239,12 +242,12 @@ public class InterfazDealership extends javax.swing.JFrame {
         jLabel70 = new javax.swing.JLabel();
         jbt_guardarrmarca = new javax.swing.JButton();
         jLabel80 = new javax.swing.JLabel();
-        jcbx_codigomarcavehiculo1 = new javax.swing.JComboBox<>();
+        jcbx_codigomarcamodificarmarca = new javax.swing.JComboBox<>();
         jbg_modificartipo = new javax.swing.ButtonGroup();
         jd_modificarmodelo = new javax.swing.JDialog();
         jtxt_modificarmotormodelo = new javax.swing.JTextField();
         jtxt_modificarmodelotipo = new javax.swing.JTextField();
-        jcbx_codigomarca1 = new javax.swing.JComboBox<>();
+        jcbx_codigomarcamodificarmodelo = new javax.swing.JComboBox<>();
         jLabel83 = new javax.swing.JLabel();
         jButton4 = new javax.swing.JButton();
         jtxt_modificarnombremodelo = new javax.swing.JTextField();
@@ -254,6 +257,24 @@ public class InterfazDealership extends javax.swing.JFrame {
         jLabel93 = new javax.swing.JLabel();
         jLabel94 = new javax.swing.JLabel();
         jcbx_idmodelo = new javax.swing.JComboBox<>();
+        btg_operaciones = new javax.swing.ButtonGroup();
+        jd_crearventa = new javax.swing.JDialog();
+        jLabel84 = new javax.swing.JLabel();
+        jPanel17 = new javax.swing.JPanel();
+        jcbx_correoconcesionarioventa = new javax.swing.JComboBox<>();
+        jcbx_idclienteventa = new javax.swing.JComboBox<>();
+        jB_crearVenta = new javax.swing.JButton();
+        jLabel86 = new javax.swing.JLabel();
+        jcbx_vinvehiculoventa = new javax.swing.JComboBox<>();
+        jLabel87 = new javax.swing.JLabel();
+        date_fechaventa = new com.toedter.calendar.JDateChooser();
+        jLabel111 = new javax.swing.JLabel();
+        jLabel89 = new javax.swing.JLabel();
+        jLabel85 = new javax.swing.JLabel();
+        jLabel95 = new javax.swing.JLabel();
+        jtxt_idventa = new javax.swing.JTextField();
+        jLabel96 = new javax.swing.JLabel();
+        jtxt_cantidadventa = new javax.swing.JTextField();
         jPanel1 = new javax.swing.JPanel();
         jtp_main = new javax.swing.JTabbedPane();
         Cliente_JP = new javax.swing.JPanel();
@@ -269,7 +290,7 @@ public class InterfazDealership extends javax.swing.JFrame {
         jLabel24 = new javax.swing.JLabel();
         jtxt_usuario = new javax.swing.JTextField();
         jLabel25 = new javax.swing.JLabel();
-        jtxt_contrasena = new javax.swing.JPasswordField();
+        jpf_contrasena = new javax.swing.JPasswordField();
         jrb_cliente = new javax.swing.JRadioButton();
         jrb_conse = new javax.swing.JRadioButton();
         jrb_market = new javax.swing.JRadioButton();
@@ -283,7 +304,7 @@ public class InterfazDealership extends javax.swing.JFrame {
 
         jLabel6.setText("Nombre");
 
-        jLabel7.setText("Tipo");
+        jLabel7.setText("Tipo/Sexo");
 
         jLabel8.setText("Teléfono");
 
@@ -291,10 +312,10 @@ public class InterfazDealership extends javax.swing.JFrame {
 
         jLabel10.setText("Concesionario Correo");
 
-        Btg_Sexo.add(rb_sexoM);
+        Btg_tipo.add(rb_sexoM);
         rb_sexoM.setText("M");
 
-        Btg_Sexo.add(rb_sexoF);
+        Btg_tipo.add(rb_sexoF);
         rb_sexoF.setText("F");
 
         jbt_crearcliente.setText("Crear");
@@ -303,6 +324,9 @@ public class InterfazDealership extends javax.swing.JFrame {
                 jbt_crearclienteActionPerformed(evt);
             }
         });
+
+        Btg_tipo.add(rb_empresacliente);
+        rb_empresacliente.setText("Empresa");
 
         javax.swing.GroupLayout jd_CrearClienteLayout = new javax.swing.GroupLayout(jd_CrearCliente.getContentPane());
         jd_CrearCliente.getContentPane().setLayout(jd_CrearClienteLayout);
@@ -320,23 +344,26 @@ public class InterfazDealership extends javax.swing.JFrame {
                             .addComponent(jLabel9)
                             .addComponent(jLabel10))
                         .addGap(18, 18, 18)
-                        .addGroup(jd_CrearClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jtxt_idcliente)
-                            .addComponent(jtxt_nombrecliente)
+                        .addGroup(jd_CrearClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jd_CrearClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(jtxt_idcliente)
+                                .addComponent(jtxt_nombrecliente)
+                                .addComponent(jcbx_idconcesionario, 0, 118, Short.MAX_VALUE)
+                                .addComponent(jtxt_telefonocliente)
+                                .addComponent(jtxt_direccioncliente))
                             .addGroup(jd_CrearClienteLayout.createSequentialGroup()
                                 .addComponent(rb_sexoM)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(rb_sexoF))
-                            .addComponent(jcbx_idconcesionario, 0, 118, Short.MAX_VALUE)
-                            .addComponent(jtxt_telefonocliente)
-                            .addComponent(jtxt_direccioncliente)))
+                                .addComponent(rb_sexoF)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(rb_empresacliente))))
                     .addGroup(jd_CrearClienteLayout.createSequentialGroup()
                         .addGap(137, 137, 137)
                         .addComponent(jLabel4))
                     .addGroup(jd_CrearClienteLayout.createSequentialGroup()
                         .addGap(145, 145, 145)
                         .addComponent(jbt_crearcliente, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(86, Short.MAX_VALUE))
+                .addContainerGap(47, Short.MAX_VALUE))
         );
         jd_CrearClienteLayout.setVerticalGroup(
             jd_CrearClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -356,7 +383,8 @@ public class InterfazDealership extends javax.swing.JFrame {
                     .addComponent(jLabel7)
                     .addGroup(jd_CrearClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(rb_sexoM)
-                        .addComponent(rb_sexoF)))
+                        .addComponent(rb_sexoF)
+                        .addComponent(rb_empresacliente)))
                 .addGap(12, 12, 12)
                 .addGroup(jd_CrearClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel8)
@@ -747,6 +775,13 @@ public class InterfazDealership extends javax.swing.JFrame {
         jLabel49.setText("Id planta de fabricación");
 
         jbt_insertarpieza.setText("Insertar");
+        jbt_insertarpieza.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbt_insertarpiezaActionPerformed(evt);
+            }
+        });
+
+        jLabel65.setText("Correo Proveedor");
 
         javax.swing.GroupLayout jd_CrearPiezaLayout = new javax.swing.GroupLayout(jd_CrearPieza.getContentPane());
         jd_CrearPieza.getContentPane().setLayout(jd_CrearPiezaLayout);
@@ -768,11 +803,14 @@ public class InterfazDealership extends javax.swing.JFrame {
                         .addComponent(jLabel46))
                     .addGroup(jd_CrearPiezaLayout.createSequentialGroup()
                         .addGap(24, 24, 24)
-                        .addComponent(jLabel49)
+                        .addGroup(jd_CrearPiezaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel65)
+                            .addComponent(jLabel49))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jd_CrearPiezaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jd_CrearPiezaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jbt_insertarpieza)
-                            .addComponent(jcbx_idplantadefabricacionpieza, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(jcbx_idplantadefabricacionpieza, 0, 155, Short.MAX_VALUE)
+                            .addComponent(jcbx_correoproveedorhaspieza, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap(99, Short.MAX_VALUE))
         );
         jd_CrearPiezaLayout.setVerticalGroup(
@@ -792,9 +830,13 @@ public class InterfazDealership extends javax.swing.JFrame {
                 .addGroup(jd_CrearPiezaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jcbx_idplantadefabricacionpieza, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel49))
-                .addGap(39, 39, 39)
+                .addGap(29, 29, 29)
+                .addGroup(jd_CrearPiezaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel65)
+                    .addComponent(jcbx_correoproveedorhaspieza, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
                 .addComponent(jbt_insertarpieza)
-                .addContainerGap(132, Short.MAX_VALUE))
+                .addGap(81, 81, 81))
         );
 
         jLabel50.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
@@ -871,11 +913,25 @@ public class InterfazDealership extends javax.swing.JFrame {
 
         jLabel57.setText("Planta de Fabricación");
 
-        jLabel58.setText("Fecha");
-
-        jLabel59.setText("Hora");
-
         jbt_insertarvehiculo.setText("Insertar");
+        jbt_insertarvehiculo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbt_insertarvehiculoActionPerformed(evt);
+            }
+        });
+
+        jbt_generarvincode.setText("Generar VIN Code");
+        jbt_generarvincode.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbt_generarvincodeActionPerformed(evt);
+            }
+        });
+
+        jLabel58.setText("Numeración");
+
+        jLabel59.setText("Codigo Modelo");
+
+        jLabel97.setText("Estado");
 
         javax.swing.GroupLayout jd_CrearVehiculoLayout = new javax.swing.GroupLayout(jd_CrearVehiculo.getContentPane());
         jd_CrearVehiculo.getContentPane().setLayout(jd_CrearVehiculoLayout);
@@ -886,76 +942,83 @@ public class InterfazDealership extends javax.swing.JFrame {
                     .addGroup(jd_CrearVehiculoLayout.createSequentialGroup()
                         .addGap(161, 161, 161)
                         .addComponent(jLabel54))
-                    .addGroup(jd_CrearVehiculoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addGroup(jd_CrearVehiculoLayout.createSequentialGroup()
-                            .addGap(89, 89, 89)
-                            .addGroup(jd_CrearVehiculoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jd_CrearVehiculoLayout.createSequentialGroup()
-                                    .addComponent(jLabel58)
-                                    .addGap(0, 0, Short.MAX_VALUE))
-                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jd_CrearVehiculoLayout.createSequentialGroup()
-                                    .addComponent(jLabel59)
-                                    .addGap(18, 18, 18)
-                                    .addComponent(jtxt_hora))))
-                        .addGroup(jd_CrearVehiculoLayout.createSequentialGroup()
-                            .addContainerGap()
+                    .addGroup(jd_CrearVehiculoLayout.createSequentialGroup()
+                        .addGap(19, 19, 19)
+                        .addGroup(jd_CrearVehiculoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jd_CrearVehiculoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                 .addGroup(jd_CrearVehiculoLayout.createSequentialGroup()
                                     .addComponent(jLabel55)
                                     .addGap(18, 18, 18)
-                                    .addComponent(jcbx_corroconcesionariovehiculo, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(jcbx_correoconcesionariovehiculo, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGroup(jd_CrearVehiculoLayout.createSequentialGroup()
                                     .addGroup(jd_CrearVehiculoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                         .addComponent(jLabel57)
-                                        .addComponent(jLabel56))
+                                        .addComponent(jLabel56)
+                                        .addComponent(jLabel58)
+                                        .addComponent(jLabel59)
+                                        .addComponent(jLabel97))
                                     .addGap(18, 18, 18)
                                     .addGroup(jd_CrearVehiculoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(jtxt_numeracion)
                                         .addComponent(jcbx_codigomarcavehiculo, 0, 184, Short.MAX_VALUE)
-                                        .addComponent(jcbx_idplantadefabricacion, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                                .addComponent(jtxt_fecha, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(45, Short.MAX_VALUE))
+                                        .addComponent(jcbx_plantadefabricacionvehiculo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(jcbx_modelovehiculo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(jtxt_estadovehiculo))))
+                            .addGroup(jd_CrearVehiculoLayout.createSequentialGroup()
+                                .addGap(19, 19, 19)
+                                .addComponent(jLabel19)
+                                .addGap(18, 18, 18)
+                                .addComponent(jtxt_VIN, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(jd_CrearVehiculoLayout.createSequentialGroup()
+                        .addGap(156, 156, 156)
+                        .addComponent(jbt_insertarvehiculo)))
+                .addContainerGap(24, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jd_CrearVehiculoLayout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jbt_insertarvehiculo)
-                .addGap(130, 130, 130))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jd_CrearVehiculoLayout.createSequentialGroup()
-                .addComponent(jLabel19)
-                .addGap(18, 18, 18)
-                .addComponent(jtxt_VIN)
-                .addGap(25, 25, 25))
+                .addComponent(jbt_generarvincode)
+                .addGap(125, 125, 125))
         );
         jd_CrearVehiculoLayout.setVerticalGroup(
             jd_CrearVehiculoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jd_CrearVehiculoLayout.createSequentialGroup()
                 .addGap(28, 28, 28)
                 .addComponent(jLabel54)
-                .addGap(73, 73, 73)
+                .addGap(18, 18, 18)
                 .addGroup(jd_CrearVehiculoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel55)
-                    .addComponent(jcbx_corroconcesionariovehiculo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jcbx_correoconcesionariovehiculo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jd_CrearVehiculoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel56)
                     .addComponent(jcbx_codigomarcavehiculo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jd_CrearVehiculoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel57)
-                    .addComponent(jcbx_idplantadefabricacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jd_CrearVehiculoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel58)
-                    .addComponent(jtxt_fecha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addGap(12, 12, 12)
                 .addGroup(jd_CrearVehiculoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel59)
-                    .addComponent(jtxt_hora, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(43, 43, 43)
+                    .addComponent(jcbx_modelovehiculo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jd_CrearVehiculoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel57)
+                    .addComponent(jcbx_plantadefabricacionvehiculo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jd_CrearVehiculoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jd_CrearVehiculoLayout.createSequentialGroup()
+                        .addGap(15, 15, 15)
+                        .addComponent(jLabel58))
+                    .addGroup(jd_CrearVehiculoLayout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(jtxt_numeracion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(18, 18, 18)
                 .addGroup(jd_CrearVehiculoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel19)
-                    .addComponent(jtxt_VIN, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
+                    .addComponent(jLabel97)
+                    .addComponent(jtxt_estadovehiculo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
+                .addComponent(jbt_generarvincode)
+                .addGap(18, 18, 18)
+                .addGroup(jd_CrearVehiculoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jtxt_VIN, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel19))
+                .addGap(28, 28, 28)
                 .addComponent(jbt_insertarvehiculo)
-                .addContainerGap())
+                .addGap(39, 39, 39))
         );
 
         jLabel60.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
@@ -1029,58 +1092,8 @@ public class InterfazDealership extends javax.swing.JFrame {
                 .addContainerGap(93, Short.MAX_VALUE))
         );
 
-        jLabel65.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel65.setText("Proveedor tiene Pieza");
-
-        jLabel66.setText("Correo electrónico proveedor");
-
-        jLabel67.setText("Modelo de Pieza");
-
-        jbt_insertarproveedorpieza.setText("Insertar");
-
-        javax.swing.GroupLayout jd_proveedor_piezaLayout = new javax.swing.GroupLayout(jd_proveedor_pieza.getContentPane());
-        jd_proveedor_pieza.getContentPane().setLayout(jd_proveedor_piezaLayout);
-        jd_proveedor_piezaLayout.setHorizontalGroup(
-            jd_proveedor_piezaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jd_proveedor_piezaLayout.createSequentialGroup()
-                .addGroup(jd_proveedor_piezaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(jd_proveedor_piezaLayout.createSequentialGroup()
-                        .addGap(124, 124, 124)
-                        .addComponent(jLabel65))
-                    .addGroup(jd_proveedor_piezaLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel66)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jcbx_correoproveedortienepieza, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jd_proveedor_piezaLayout.createSequentialGroup()
-                        .addGap(78, 78, 78)
-                        .addComponent(jLabel67)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jd_proveedor_piezaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jbt_insertarproveedorpieza)
-                            .addComponent(jcbx_modelopiezaproveedorpieza, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addContainerGap(121, Short.MAX_VALUE))
-        );
-        jd_proveedor_piezaLayout.setVerticalGroup(
-            jd_proveedor_piezaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jd_proveedor_piezaLayout.createSequentialGroup()
-                .addGap(33, 33, 33)
-                .addComponent(jLabel65)
-                .addGap(34, 34, 34)
-                .addGroup(jd_proveedor_piezaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel66)
-                    .addComponent(jcbx_correoproveedortienepieza, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jd_proveedor_piezaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel67)
-                    .addComponent(jcbx_modelopiezaproveedorpieza, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(40, 40, 40)
-                .addComponent(jbt_insertarproveedorpieza)
-                .addContainerGap(157, Short.MAX_VALUE))
-        );
-
-        jD_ventanaCRUD.setResizable(false);
-        jD_ventanaCRUD.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jd_ventanaCRUD.setResizable(false);
+        jd_ventanaCRUD.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         jPanel3.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 370, -1, 80));
@@ -1097,7 +1110,10 @@ public class InterfazDealership extends javax.swing.JFrame {
         jPanel3.add(jLabel34, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 320, -1, -1));
 
         jRB_crear.setBackground(new java.awt.Color(51, 255, 102));
+        btg_operaciones.add(jRB_crear);
         jPanel3.add(jRB_crear, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 260, -1, -1));
+
+        btg_operaciones.add(jRB_eliminar);
         jPanel3.add(jRB_eliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 260, 20, -1));
 
         jPanel4.setBackground(new java.awt.Color(204, 204, 204));
@@ -1137,13 +1153,13 @@ public class InterfazDealership extends javax.swing.JFrame {
         jPanel4.add(jB_ejecutarCRUD, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 610, 114, 51));
 
         btg_entidades.add(jRB_pieza);
-        jPanel4.add(jRB_pieza, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 560, -1, -1));
+        jPanel4.add(jRB_pieza, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 560, -1, -1));
         jPanel4.add(jLabel71, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 680, -1, -1));
 
         jLabel72.setFont(new java.awt.Font("sansserif", 0, 14)); // NOI18N
         jLabel72.setForeground(new java.awt.Color(51, 51, 51));
         jLabel72.setText("Pieza");
-        jPanel4.add(jLabel72, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 520, -1, -1));
+        jPanel4.add(jLabel72, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 520, -1, -1));
         jPanel4.add(jLabel43, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 90, -1, 140));
 
         jLabel38.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
@@ -1152,6 +1168,7 @@ public class InterfazDealership extends javax.swing.JFrame {
         jPanel4.add(jLabel38, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 230, -1, -1));
 
         jRB_modificar.setBackground(new java.awt.Color(51, 255, 102));
+        btg_operaciones.add(jRB_modificar);
         jPanel4.add(jRB_modificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 260, -1, -1));
 
         jLabel36.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
@@ -1190,25 +1207,31 @@ public class InterfazDealership extends javax.swing.JFrame {
         jPanel4.add(jRB_consecionario, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 560, -1, -1));
 
         btg_entidades.add(jRB_modelo);
-        jPanel4.add(jRB_modelo, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 560, -1, -1));
+        jPanel4.add(jRB_modelo, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 560, -1, -1));
 
         jLabel29.setFont(new java.awt.Font("sansserif", 0, 14)); // NOI18N
         jLabel29.setForeground(new java.awt.Color(51, 51, 51));
         jLabel29.setText("Modelo");
-        jPanel4.add(jLabel29, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 520, -1, -1));
+        jPanel4.add(jLabel29, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 520, -1, -1));
 
         jLabel32.setFont(new java.awt.Font("sansserif", 0, 14)); // NOI18N
         jLabel32.setForeground(new java.awt.Color(51, 51, 51));
         jLabel32.setText("Cliente");
-        jPanel4.add(jLabel32, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 520, -1, -1));
+        jPanel4.add(jLabel32, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 520, -1, -1));
 
         btg_entidades.add(jRB_cliente);
         jRB_cliente.setToolTipText("");
-        jPanel4.add(jRB_cliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 560, -1, -1));
+        jPanel4.add(jRB_cliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 560, -1, -1));
+
+        btg_entidades.add(jRB_venta);
+        jPanel4.add(jRB_venta, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 560, -1, -1));
+
+        jLabel90.setText("Venta");
+        jPanel4.add(jLabel90, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 520, -1, -1));
 
         jPanel3.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 560, 730));
 
-        jD_ventanaCRUD.getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 560, -1));
+        jd_ventanaCRUD.getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 560, -1));
 
         jLabel73.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel73.setText("Modificar Cliente");
@@ -1225,11 +1248,11 @@ public class InterfazDealership extends javax.swing.JFrame {
 
         jLabel76.setText("Tipo");
 
-        Btg_Sexo.add(rb_sexoM1);
+        Btg_tipo.add(rb_sexoM1);
         rb_sexoM1.setSelected(true);
         rb_sexoM1.setText("M");
 
-        Btg_Sexo.add(rb_sexoF1);
+        Btg_tipo.add(rb_sexoF1);
         rb_sexoF1.setText("F");
 
         jLabel77.setText("Teléfono");
@@ -1251,7 +1274,7 @@ public class InterfazDealership extends javax.swing.JFrame {
             }
         });
 
-        Btg_Sexo.add(rb_Empresa);
+        Btg_tipo.add(rb_Empresa);
         rb_Empresa.setText("Empresa");
         rb_Empresa.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1355,9 +1378,9 @@ public class InterfazDealership extends javax.swing.JFrame {
 
         jLabel80.setText("Ingrese el codigo de la marca a modificar");
 
-        jcbx_codigomarcavehiculo1.addActionListener(new java.awt.event.ActionListener() {
+        jcbx_codigomarcamodificarmarca.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jcbx_codigomarcavehiculo1ActionPerformed(evt);
+                jcbx_codigomarcamodificarmarcaActionPerformed(evt);
             }
         });
 
@@ -1374,7 +1397,7 @@ public class InterfazDealership extends javax.swing.JFrame {
                             .addComponent(jLabel69))
                         .addGap(18, 18, 18)
                         .addGroup(jd_modificarmarcaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jcbx_codigomarcavehiculo1, 0, 154, Short.MAX_VALUE)
+                            .addComponent(jcbx_codigomarcamodificarmarca, 0, 154, Short.MAX_VALUE)
                             .addComponent(jtxt_modificarnombremarca)))
                     .addGroup(jd_modificarmarcaLayout.createSequentialGroup()
                         .addGap(145, 145, 145)
@@ -1397,7 +1420,7 @@ public class InterfazDealership extends javax.swing.JFrame {
                 .addGap(16, 16, 16)
                 .addGroup(jd_modificarmarcaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel69)
-                    .addComponent(jcbx_codigomarcavehiculo1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jcbx_codigomarcamodificarmarca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(29, 29, 29)
                 .addGroup(jd_modificarmarcaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel70)
@@ -1466,7 +1489,7 @@ public class InterfazDealership extends javax.swing.JFrame {
                                             .addComponent(jcbx_idmodelo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jd_modificarmodeloLayout.createSequentialGroup()
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jcbx_codigomarca1, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                        .addComponent(jcbx_codigomarcamodificarmodelo, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE))))
                             .addGroup(jd_modificarmodeloLayout.createSequentialGroup()
                                 .addGap(37, 37, 37)
                                 .addComponent(jLabel88)
@@ -1500,11 +1523,78 @@ public class InterfazDealership extends javax.swing.JFrame {
                     .addComponent(jLabel88))
                 .addGap(29, 29, 29)
                 .addGroup(jd_modificarmodeloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jcbx_codigomarca1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jcbx_codigomarcamodificarmodelo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel83))
                 .addGap(34, 34, 34)
                 .addComponent(jButton4)
                 .addContainerGap(113, Short.MAX_VALUE))
+        );
+
+        jd_crearventa.setResizable(false);
+
+        jPanel17.setBackground(new java.awt.Color(204, 204, 204));
+        jPanel17.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jPanel17.add(jcbx_correoconcesionarioventa, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 190, 180, -1));
+        jPanel17.add(jcbx_idclienteventa, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 240, 180, -1));
+
+        jB_crearVenta.setText("Crear");
+        jB_crearVenta.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jB_crearVentaMouseClicked(evt);
+            }
+        });
+        jB_crearVenta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jB_crearVentaActionPerformed(evt);
+            }
+        });
+        jPanel17.add(jB_crearVenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 400, -1, -1));
+
+        jLabel86.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel86.setText("Crear Venta");
+        jPanel17.add(jLabel86, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 30, -1, -1));
+        jPanel17.add(jcbx_vinvehiculoventa, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 290, 180, -1));
+
+        jLabel87.setText("Fecha de la compra ");
+        jPanel17.add(jLabel87, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 340, -1, -1));
+
+        date_fechaventa.setDate(new java.util.Date(934933459000L));
+        date_fechaventa.setDateFormatString("yyyy-MM-dd");
+        jPanel17.add(date_fechaventa, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 340, 237, -1));
+
+        jLabel111.setText("IdCliente");
+        jPanel17.add(jLabel111, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 240, -1, -1));
+
+        jLabel89.setText("Vin Vehiculo");
+        jPanel17.add(jLabel89, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 290, -1, -1));
+
+        jLabel85.setText("Correo Concesionario");
+        jPanel17.add(jLabel85, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 190, -1, -1));
+
+        jLabel95.setText("Id Venta");
+        jPanel17.add(jLabel95, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 100, -1, -1));
+        jPanel17.add(jtxt_idventa, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 90, 180, -1));
+
+        jLabel96.setText("Monto Venta");
+        jPanel17.add(jLabel96, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 140, -1, -1));
+        jPanel17.add(jtxt_cantidadventa, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 140, 180, -1));
+
+        javax.swing.GroupLayout jd_crearventaLayout = new javax.swing.GroupLayout(jd_crearventa.getContentPane());
+        jd_crearventa.getContentPane().setLayout(jd_crearventaLayout);
+        jd_crearventaLayout.setHorizontalGroup(
+            jd_crearventaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel17, javax.swing.GroupLayout.PREFERRED_SIZE, 480, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(jd_crearventaLayout.createSequentialGroup()
+                .addGap(230, 230, 230)
+                .addComponent(jLabel84))
+        );
+        jd_crearventaLayout.setVerticalGroup(
+            jd_crearventaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jd_crearventaLayout.createSequentialGroup()
+                .addGap(10, 10, 10)
+                .addComponent(jLabel84)
+                .addContainerGap(512, Short.MAX_VALUE))
+            .addComponent(jPanel17, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -1686,7 +1776,7 @@ public class InterfazDealership extends javax.swing.JFrame {
                         .addGroup(javax.swing.GroupLayout.Alignment.LEADING, IngresarLayout.createSequentialGroup()
                             .addComponent(jLabel25)
                             .addGap(18, 18, 18)
-                            .addComponent(jtxt_contrasena, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(jpf_contrasena, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(IngresarLayout.createSequentialGroup()
                         .addGap(55, 55, 55)
                         .addGroup(IngresarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -1709,7 +1799,7 @@ public class InterfazDealership extends javax.swing.JFrame {
                 .addGap(23, 23, 23)
                 .addGroup(IngresarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel25)
-                    .addComponent(jtxt_contrasena, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jpf_contrasena, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(29, 29, 29)
                 .addComponent(jrb_cliente)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -1733,7 +1823,7 @@ public class InterfazDealership extends javax.swing.JFrame {
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jtp_main, javax.swing.GroupLayout.DEFAULT_SIZE, 559, Short.MAX_VALUE)
+            .addComponent(jtp_main)
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -1783,25 +1873,40 @@ public class InterfazDealership extends javax.swing.JFrame {
 
         try {
             String sqlMarca = "select Codigo_marca from Marca";
-            llenarComboBox(jcbx_codigomarcavehiculo1, sqlMarca);
-            llenarComboBox(jcbx_codigomarca1, sqlMarca);
+            llenarComboBox(jcbx_codigomarcamodificarmarca, sqlMarca);
+            llenarComboBox(jcbx_codigomarcamodificarmodelo, sqlMarca);
+            llenarComboBox(jcbx_codigomarca, sqlMarca);
+            llenarComboBox(jcbx_codigomarcavehiculo, sqlMarca);
+            
 
             String sqlcliente = "SELECT Id_cliente FROM Cliente";
             llenarComboBox(jcbx_idcliente, sqlcliente);
+            llenarComboBox(jcbx_idclienteventa, sqlcliente);
 
             String sql = "SELECT Correo_electronico FROM Concesionario";
             llenarComboBox(jcbx_idconcesionario, sql);
             llenarComboBox(jcbx_idconcesionario1, sql);
+            llenarComboBox(jcbx_correoconcesionarioventa, sql);
+            llenarComboBox(jcbx_correoconcesionariovehiculo, sql);
+            llenarComboBox(jcbx_correoconcesionarioventa, sql);
 
             String sqlProveedor = "SELECT Correo_electronico FROM Proveedor";
-            llenarComboBox(jcbx_correoproveedortienepieza, sql);
+            llenarComboBox(jcbx_correoproveedorhaspieza, sqlProveedor);
 
-            String sqlComboBox = "select Codigo_marca from Marca";
-            llenarComboBox(jcbx_codigomarca, sqlComboBox);
-
+            String sqlvehiculo = "SELECT VIN FROM Vehiculo";
+            llenarComboBox(jcbx_vinvehiculoventa, sqlvehiculo);
+        
             String sqlModelo = "select idModelo from Modelo";
-            llenarComboBox(jcbx_modelopiezaproveedorpieza, sqlModelo);
             llenarComboBox(jcbx_idmodelo, sqlModelo);
+            llenarComboBox(jcbx_modelovehiculo, sqlModelo);
+            llenarComboBox(jcbx_idmodelopieza, sqlModelo);
+            
+            String sqlplantapieza = "SELECT idPlanta FROM Planta_de_Fabricacion";
+            llenarComboBox(jcbx_idplantadefabricacionpieza, sqlplantapieza);
+            llenarComboBox(jcbx_plantadefabricacionvehiculo, sqlplantapieza);
+            
+            
+
         } catch (SQLException ex) {
             Logger.getLogger(InterfazDealership.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -1838,10 +1943,10 @@ public class InterfazDealership extends javax.swing.JFrame {
     }//GEN-LAST:event_jB_ejecutarCRUDMouseClicked
 
     private void jToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton1ActionPerformed
-        jD_ventanaCRUD.pack();
-        jD_ventanaCRUD.setModal(true);
-        jD_ventanaCRUD.setLocationRelativeTo(this);
-        jD_ventanaCRUD.setVisible(true);
+        jd_ventanaCRUD.pack();
+        jd_ventanaCRUD.setModal(true);
+        jd_ventanaCRUD.setLocationRelativeTo(this);
+        jd_ventanaCRUD.setVisible(true);
     }//GEN-LAST:event_jToggleButton1ActionPerformed
 
     private void jbt_crearmarcaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbt_crearmarcaActionPerformed
@@ -1896,7 +2001,7 @@ public class InterfazDealership extends javax.swing.JFrame {
 
     private void jbt_loginMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jbt_loginMouseClicked
         if (jrb_cliente.isSelected()) {
-            if (jtxt_usuario.getText().equals(clname) && jtxt_contrasena.getText().equals(clpass)) {
+            if (jtxt_usuario.getText().equals(clname) && jpf_contrasena.getText().equals(clpass)) {
                 jtp_main.setEnabledAt(0, false);
                 jtp_main.setEnabledAt(1, true);
                 jtp_main.setEnabledAt(2, false);
@@ -1906,7 +2011,7 @@ public class InterfazDealership extends javax.swing.JFrame {
             }
 
         } else if (jrb_conse.isSelected()) {
-            if (jtxt_usuario.getText().equals(consename) && jtxt_contrasena.getText().equals(consepass)) {
+            if (jtxt_usuario.getText().equals(consename) && jpf_contrasena.getText().equals(consepass)) {
 
                 jtp_main.setEnabledAt(0, false);
                 jtp_main.setEnabledAt(1, true);
@@ -1915,10 +2020,10 @@ public class InterfazDealership extends javax.swing.JFrame {
             } else {
                 JOptionPane.showMessageDialog(this, "Acceso denegado, revise los datos");
                 System.out.println(jtxt_usuario.getText());
-                System.out.println(jtxt_contrasena.getText());
+                System.out.println(jpf_contrasena.getText());
             }
         } else if (jrb_market.isSelected()) {
-            if (jtxt_usuario.getText().equals(mkname) && jtxt_contrasena.getText().equals(mkpass)) {
+            if (jtxt_usuario.getText().equals(mkname) && jpf_contrasena.getText().equals(mkpass)) {
                 jtp_main.setEnabledAt(0, false);
                 jtp_main.setEnabledAt(1, false);
                 jtp_main.setEnabledAt(2, true);
@@ -1926,10 +2031,10 @@ public class InterfazDealership extends javax.swing.JFrame {
             } else {
                 JOptionPane.showMessageDialog(this, "Acceso denegado, revise los datos");
                 System.out.println(jtxt_usuario.getText());
-                System.out.println(jtxt_contrasena.getText());
+                System.out.println(jpf_contrasena.getText());
             }
         } else if (jrb_admin.isSelected()) {
-            if (jtxt_usuario.getText().equals(adname) && jtxt_contrasena.getText().equals(adpass)) {
+            if (jtxt_usuario.getText().equals(adname) && jpf_contrasena.getText().equals(adpass)) {
                 JOptionPane.showMessageDialog(this, "Bienvenido administrador");
                 jtp_main.setEnabledAt(0, true);
                 jtp_main.setEnabledAt(1, true);
@@ -1939,7 +2044,7 @@ public class InterfazDealership extends javax.swing.JFrame {
             } else {
                 JOptionPane.showMessageDialog(this, "Acceso denegado, revise los datos");
                 System.out.println(jtxt_usuario.getText());
-                System.out.println(jtxt_contrasena.getText());
+                System.out.println(jpf_contrasena.getText());
 
             }
         }
@@ -1950,14 +2055,19 @@ public class InterfazDealership extends javax.swing.JFrame {
     }//GEN-LAST:event_jtxt_idmodeloActionPerformed
 
     private void jbt_crearclienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbt_crearclienteActionPerformed
+        String persona = "";
         try {
-            PreparedStatement pst = cn.prepareStatement("INSERT INTO Cliente (Id_cliente, Nombre,Sexo,Telefono,Direccion, Concesionario_Correo_electronico) VALUES (?, ?, ?, ?, ?, ?)");
+            PreparedStatement pst = cn.prepareStatement("INSERT INTO Cliente (Id_cliente, Nombre,Tipo,Telefono,Direccion, Concesionario_Correo_electronico) VALUES (?, ?, ?, ?, ?, ?)");
             pst.setString(1, jtxt_idcliente.getText());
             pst.setString(2, jtxt_nombrecliente.getText());
             if (rb_sexoM.isSelected()) {
-                pst.setString(3, rb_sexoM.getText());
-            } else {
-                pst.setString(3, rb_sexoF.getText());
+                persona = "Persona " + rb_sexoM.getText();
+                pst.setString(3, persona);
+            } else if(rb_sexoF.isSelected()) {
+                persona = "Persona " + rb_sexoF.getText();
+                pst.setString(3, persona);
+            } else if(rb_empresacliente.isSelected()){
+                pst.setString(3, rb_empresacliente.getText());
             }
             pst.setString(4, jtxt_telefonocliente.getText());
             pst.setString(5, jtxt_direccioncliente.getText());
@@ -2079,7 +2189,7 @@ public class InterfazDealership extends javax.swing.JFrame {
         try {
             PreparedStatement pst = cn.prepareStatement(modificacion_sql);
             pst.setString(1, jtxt_modificarnombremarca.getText());
-            pst.setString(2, jcbx_codigomarcavehiculo1.getSelectedItem().toString());
+            pst.setString(2, jcbx_codigomarcamodificarmarca.getSelectedItem().toString());
             pst.executeUpdate();
             JOptionPane.showMessageDialog(this, "Modificaciònn exitosa");
         } catch (SQLException ex) {
@@ -2138,7 +2248,7 @@ public class InterfazDealership extends javax.swing.JFrame {
             PreparedStatement pst = cn.prepareStatement(modificacion_sql);
             pst.setString(1, jtxt_modificarmotormodelo.getText());
             pst.setString(2, jtxt_modificarmodelotipo.getText());
-            pst.setString(3, jcbx_codigomarca1.getSelectedItem().toString());
+            pst.setString(3, jcbx_codigomarcamodificarmodelo.getSelectedItem().toString());
             pst.setString(4, jtxt_modificarnombremodelo.getText());
             pst.setString(5, jcbx_idmodelo.getSelectedItem().toString());
             pst.executeUpdate();
@@ -2156,9 +2266,100 @@ public class InterfazDealership extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jcbx_idmodeloActionPerformed
 
-    private void jcbx_codigomarcavehiculo1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcbx_codigomarcavehiculo1ActionPerformed
+    private void jcbx_codigomarcamodificarmarcaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcbx_codigomarcamodificarmarcaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jcbx_codigomarcavehiculo1ActionPerformed
+    }//GEN-LAST:event_jcbx_codigomarcamodificarmarcaActionPerformed
+
+    private void jB_crearVentaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jB_crearVentaMouseClicked
+
+        //mandar datos a la base
+//        cn = db.getConnection();
+//        CallableStatement cs = null;
+//        String sql = "{CALL sp_insertarLe_Vende_A(?,?,?,?)}";
+//        try {
+//            cs = conn.prepareCall(sql);
+//            cs.setString(1, rtnCon);
+//            cs.setString(2, rtnCliente);
+//            cs.setString(3, vinVehiculoVendido);
+//            cs.setDate(4, fechaSql);
+//            cs.execute();
+//            cs.close();
+//            conn.close();
+//            JOptionPane.showMessageDialog(jD_crearCompania, "Se ha agregado a la DB con éxito", "Exito", JOptionPane.INFORMATION_MESSAGE);
+//        } catch (SQLException ex) {
+//            Logger.getLogger(JFramePrincipal.class.getName()).log(Level.SEVERE, null, ex);
+//        }
+    }//GEN-LAST:event_jB_crearVentaMouseClicked
+
+    private void jB_crearVentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jB_crearVentaActionPerformed
+        Date fechaVenta;
+        fechaVenta = (Date) date_fechaventa.getDate();
+        java.sql.Date fechaSql = new java.sql.Date(fechaVenta.getTime());
+        PreparedStatement pst;
+        PreparedStatement pst2;
+        try {
+            pst = cn.prepareStatement("INSERT INTO Venta (idVenta, CantidadVenta, Correo_Concesionario, Id_Cliente, VIN, FechaCompra) VALUES (?, ?, ?, ?, ?, ?)");
+            pst2 = cn.prepareStatement("UPDATE Vehiculo SET Estado=? WHERE VIN = ?");
+            pst.setString(1, jtxt_idventa.getText());
+            pst.setString(2, jtxt_cantidadventa.getText());
+            pst.setString(3, jcbx_correoconcesionarioventa.getSelectedItem().toString());
+            pst.setString(4, jcbx_idclienteventa.getSelectedItem().toString());
+            pst.setString(5, jcbx_vinvehiculoventa.getSelectedItem().toString());
+            pst.setDate(6, fechaSql);
+            pst2.setString(1, "Vendido");
+            pst2.setString(2, jcbx_vinvehiculoventa.getSelectedItem().toString());
+            pst.executeUpdate();
+            pst2.executeUpdate();
+            JOptionPane.showMessageDialog(this, "Datos guardados");
+        } catch (SQLException ex) {
+            Logger.getLogger(InterfazDealership.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(this, ex.getMessage());
+        }
+    }//GEN-LAST:event_jB_crearVentaActionPerformed
+
+    private void jbt_insertarpiezaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbt_insertarpiezaActionPerformed
+        PreparedStatement pst;
+        PreparedStatement pst2;
+        try {
+            pst = cn.prepareStatement("INSERT INTO Pieza (Nombre, Modelo_idModelo, PlantaFabricacion_idPlanta) VALUES (?, ?, ?)");
+            pst2 = cn.prepareStatement("INSERT INTO Proveedor_has_Pieza (Proveedor_Correo_electronico, Pieza_Modelo_idModelo) VALUES (?, ?)");
+            pst.setString(1, jtxt_nombrepieza.getText());
+            pst.setString(2, jcbx_idmodelopieza.getSelectedItem().toString());
+            pst.setString(3, jcbx_idplantadefabricacionpieza.getSelectedItem().toString());
+            pst2.setString(1, jcbx_correoproveedorhaspieza.getSelectedItem().toString());
+            pst2.setString(2, jcbx_idmodelopieza.getSelectedItem().toString());
+            pst.executeUpdate();
+            pst2.executeUpdate();
+            JOptionPane.showMessageDialog(this, "Datos guardados");
+        } catch (SQLException ex) {
+            Logger.getLogger(InterfazDealership.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(this, ex.getMessage());
+        }
+        
+    }//GEN-LAST:event_jbt_insertarpiezaActionPerformed
+
+    private void jbt_insertarvehiculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbt_insertarvehiculoActionPerformed
+        PreparedStatement pst;
+        try {
+            pst = cn.prepareStatement("INSERT INTO Vehiculo (VIN, Concesionario_Correo_electronico, Marca_Codigo_marca, PlantaFabricacion_idPlanta, Estado) VALUES (?, ?, ?, ?, ?)");
+            pst.setString(1, jtxt_VIN.getText());
+            pst.setString(2, jcbx_correoconcesionariovehiculo.getSelectedItem().toString());
+            pst.setString(3, jcbx_codigomarcavehiculo.getSelectedItem().toString());
+            pst.setString(4, jcbx_plantadefabricacionvehiculo.getSelectedItem().toString());
+            pst.setString(5, jtxt_estadovehiculo.getText());
+            pst.executeUpdate();
+            JOptionPane.showMessageDialog(this, "Datos guardados");
+        } catch (SQLException ex) {
+            Logger.getLogger(InterfazDealership.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(this, ex.getMessage());
+        }
+    }//GEN-LAST:event_jbt_insertarvehiculoActionPerformed
+
+    private void jbt_generarvincodeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbt_generarvincodeActionPerformed
+        String vincode = jcbx_codigomarcavehiculo.getSelectedItem().toString() + jcbx_modelovehiculo.getSelectedItem().toString() + jcbx_plantadefabricacionvehiculo.getSelectedItem().toString() + jtxt_numeracion.getText();
+        jtxt_VIN.setText(vincode);
+        jtxt_VIN.setEditable(false);
+    }//GEN-LAST:event_jbt_generarvincodeActionPerformed
 
     /**
      * @param args the command line arguments
@@ -2295,16 +2496,16 @@ public class InterfazDealership extends javax.swing.JFrame {
 //                } catch (SQLException ex) {
 //                    Logger.getLogger(JFramePrincipal.class.getName()).log(Level.SEVERE, null, ex);
 //                }
+                jd_CrearPieza.pack();
+                jd_CrearPieza.setModal(true);
+                jd_CrearPieza.setLocationRelativeTo(this);
+                jd_CrearPieza.setVisible(true);
+                break;
+            case 7:
                 jd_CrearModelo.pack();
                 jd_CrearModelo.setModal(true);
                 jd_CrearModelo.setLocationRelativeTo(this);
                 jd_CrearModelo.setVisible(true);
-                break;
-            case 7:
-                jd_CrearMarca.pack();
-                jd_CrearMarca.setModal(true);
-                jd_CrearMarca.setLocationRelativeTo(this);
-                jd_CrearMarca.setVisible(true);
                 break;
             case 8:
                 jd_CrearCliente.pack();
@@ -2322,10 +2523,10 @@ public class InterfazDealership extends javax.swing.JFrame {
 //                } catch (SQLException ex) {
 //                    Logger.getLogger(JFramePrincipal.class.getName()).log(Level.SEVERE, null, ex);
 //                }
-                jd_CrearPieza.pack();
-                jd_CrearPieza.setModal(true);
-                jd_CrearPieza.setLocationRelativeTo(this);
-                jd_CrearPieza.setVisible(true);
+                jd_crearventa.pack();
+                jd_crearventa.setModal(true);
+                jd_crearventa.setLocationRelativeTo(this);
+                jd_crearventa.setVisible(true);
                 break;
             default:
                 JOptionPane.showMessageDialog(this, "Seleccione a quien quiere aplicarle lo antes seleccionado!");
@@ -2389,7 +2590,10 @@ public class InterfazDealership extends javax.swing.JFrame {
                 jd_modificarCliente.setVisible(true);
                 break;
             case 9:
-                JOptionPane.showMessageDialog(this, "Lo sentimos, pero no puede modificar este elemento!");
+//                jd_crearventa.pack();
+//                jd_crearventa.setModal(true);
+//                jd_crearventa.setLocationRelativeTo(this);
+//                jd_crearventa.setVisible(true);
                 break;
             default:
                 JOptionPane.showMessageDialog(this, "Seleccione a quien quiere aplicarle lo antes seleccionado!");
@@ -2430,30 +2634,35 @@ public class InterfazDealership extends javax.swing.JFrame {
             quien = 8;
         } else if (jRB_pieza.isSelected()) {
             quien = 6;
+        } else if (jRB_venta.isSelected()) {
+            quien = 9;
         }
         System.out.println(quien);
         return quien;
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.ButtonGroup Btg_Sexo;
+    private javax.swing.ButtonGroup Btg_tipo;
     private javax.swing.JPanel Cliente_JP;
     private javax.swing.JPanel Informes_Ventas_JP;
     private javax.swing.JPanel Ingresar;
     private javax.swing.JPanel Ubicacion_Vehiculos_JP;
     private javax.swing.JPanel admin_JP;
     private javax.swing.ButtonGroup btg_entidades;
+    private javax.swing.ButtonGroup btg_operaciones;
     private javax.swing.ButtonGroup btg_transmision;
     private javax.swing.ButtonGroup buttonGroup1;
+    private com.toedter.calendar.JDateChooser date_fechaventa;
     private javax.swing.JButton jB_anteriorProveedoresClientes1;
+    private javax.swing.JButton jB_crearVenta;
     private javax.swing.JButton jB_ejecutarCRUD;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
-    private javax.swing.JDialog jD_ventanaCRUD;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel111;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
@@ -2513,8 +2722,6 @@ public class InterfazDealership extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel63;
     private javax.swing.JLabel jLabel64;
     private javax.swing.JLabel jLabel65;
-    private javax.swing.JLabel jLabel66;
-    private javax.swing.JLabel jLabel67;
     private javax.swing.JLabel jLabel68;
     private javax.swing.JLabel jLabel69;
     private javax.swing.JLabel jLabel7;
@@ -2533,13 +2740,23 @@ public class InterfazDealership extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel81;
     private javax.swing.JLabel jLabel82;
     private javax.swing.JLabel jLabel83;
+    private javax.swing.JLabel jLabel84;
+    private javax.swing.JLabel jLabel85;
+    private javax.swing.JLabel jLabel86;
+    private javax.swing.JLabel jLabel87;
     private javax.swing.JLabel jLabel88;
+    private javax.swing.JLabel jLabel89;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JLabel jLabel90;
     private javax.swing.JLabel jLabel91;
     private javax.swing.JLabel jLabel92;
     private javax.swing.JLabel jLabel93;
     private javax.swing.JLabel jLabel94;
+    private javax.swing.JLabel jLabel95;
+    private javax.swing.JLabel jLabel96;
+    private javax.swing.JLabel jLabel97;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel17;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JRadioButton jRB_cliente;
@@ -2553,6 +2770,7 @@ public class InterfazDealership extends javax.swing.JFrame {
     private javax.swing.JRadioButton jRB_plantaFabricacion;
     private javax.swing.JRadioButton jRB_proveedor;
     private javax.swing.JRadioButton jRB_vehiculo;
+    private javax.swing.JRadioButton jRB_venta;
     private javax.swing.JToggleButton jToggleButton1;
     private javax.swing.JToggleButton jToggleButton2;
     private javax.swing.JToggleButton jToggleButton3;
@@ -2565,27 +2783,30 @@ public class InterfazDealership extends javax.swing.JFrame {
     private javax.swing.JButton jbt_crearcliente1;
     private javax.swing.JButton jbt_crearconcesionario;
     private javax.swing.JButton jbt_crearmarca;
+    private javax.swing.JButton jbt_generarvincode;
     private javax.swing.JButton jbt_guardarrmarca;
     private javax.swing.JButton jbt_ingresarplantadefabricacion;
     private javax.swing.JButton jbt_insertarpieza;
     private javax.swing.JButton jbt_insertarproveedor;
-    private javax.swing.JButton jbt_insertarproveedorpieza;
     private javax.swing.JButton jbt_insertarvehiculo;
     private javax.swing.JButton jbt_login;
     private javax.swing.JComboBox<String> jcbx_codigomarca;
-    private javax.swing.JComboBox<String> jcbx_codigomarca1;
+    private javax.swing.JComboBox<String> jcbx_codigomarcamodificarmarca;
+    private javax.swing.JComboBox<String> jcbx_codigomarcamodificarmodelo;
     private javax.swing.JComboBox<String> jcbx_codigomarcavehiculo;
-    private javax.swing.JComboBox<String> jcbx_codigomarcavehiculo1;
-    private javax.swing.JComboBox<String> jcbx_correoproveedortienepieza;
-    private javax.swing.JComboBox<String> jcbx_corroconcesionariovehiculo;
+    private javax.swing.JComboBox<String> jcbx_correoconcesionariovehiculo;
+    private javax.swing.JComboBox<String> jcbx_correoconcesionarioventa;
+    private javax.swing.JComboBox<String> jcbx_correoproveedorhaspieza;
     private javax.swing.JComboBox<String> jcbx_idcliente;
+    private javax.swing.JComboBox<String> jcbx_idclienteventa;
     private javax.swing.JComboBox<String> jcbx_idconcesionario;
     private javax.swing.JComboBox<String> jcbx_idconcesionario1;
     private javax.swing.JComboBox<String> jcbx_idmodelo;
     private javax.swing.JComboBox<String> jcbx_idmodelopieza;
-    private javax.swing.JComboBox<String> jcbx_idplantadefabricacion;
     private javax.swing.JComboBox<String> jcbx_idplantadefabricacionpieza;
-    private javax.swing.JComboBox<String> jcbx_modelopiezaproveedorpieza;
+    private javax.swing.JComboBox<String> jcbx_modelovehiculo;
+    private javax.swing.JComboBox<String> jcbx_plantadefabricacionvehiculo;
+    private javax.swing.JComboBox<String> jcbx_vinvehiculoventa;
     private javax.swing.JDialog jd_CrearCliente;
     private javax.swing.JDialog jd_CrearConcesionario;
     private javax.swing.JDialog jd_CrearMarca;
@@ -2594,10 +2815,12 @@ public class InterfazDealership extends javax.swing.JFrame {
     private javax.swing.JDialog jd_CrearPlanta;
     private javax.swing.JDialog jd_CrearProveedor;
     private javax.swing.JDialog jd_CrearVehiculo;
+    private javax.swing.JDialog jd_crearventa;
     private javax.swing.JDialog jd_modificarCliente;
     private javax.swing.JDialog jd_modificarmarca;
     private javax.swing.JDialog jd_modificarmodelo;
-    private javax.swing.JDialog jd_proveedor_pieza;
+    private javax.swing.JDialog jd_ventanaCRUD;
+    private javax.swing.JPasswordField jpf_contrasena;
     private javax.swing.JRadioButton jrb_admin;
     private javax.swing.JRadioButton jrb_cliente;
     private javax.swing.JRadioButton jrb_conse;
@@ -2606,17 +2829,17 @@ public class InterfazDealership extends javax.swing.JFrame {
     private javax.swing.JRadioButton jrdb_manual;
     private javax.swing.JTabbedPane jtp_main;
     private javax.swing.JTextField jtxt_VIN;
+    private javax.swing.JTextField jtxt_cantidadventa;
     private javax.swing.JTextField jtxt_ciudadpais;
     private javax.swing.JTextField jtxt_codigomarca;
-    private javax.swing.JPasswordField jtxt_contrasena;
     private javax.swing.JTextField jtxt_correoconcesionario;
     private javax.swing.JTextField jtxt_correoelectronicoproveedor;
     private javax.swing.JTextField jtxt_direccioncliente;
-    private javax.swing.JTextField jtxt_fecha;
-    private javax.swing.JTextField jtxt_hora;
+    private javax.swing.JTextField jtxt_estadovehiculo;
     private javax.swing.JTextField jtxt_idcliente;
     private javax.swing.JTextField jtxt_idmodelo;
     private javax.swing.JTextField jtxt_idplantafabricacion;
+    private javax.swing.JTextField jtxt_idventa;
     private javax.swing.JTextField jtxt_modelotipo;
     private javax.swing.JTextField jtxt_modificardireccioncliente;
     private javax.swing.JTextField jtxt_modificarmodelotipo;
@@ -2633,6 +2856,7 @@ public class InterfazDealership extends javax.swing.JFrame {
     private javax.swing.JTextField jtxt_nombremodelo;
     private javax.swing.JTextField jtxt_nombrepieza;
     private javax.swing.JTextField jtxt_nombreplanta;
+    private javax.swing.JTextField jtxt_numeracion;
     private javax.swing.JTextField jtxt_numerotelefonoconcesionario;
     private javax.swing.JTextField jtxt_numerotelefonoproveedor;
     private javax.swing.JTextField jtxt_paisconcesionario;
@@ -2642,6 +2866,7 @@ public class InterfazDealership extends javax.swing.JFrame {
     private javax.swing.JTextField jtxt_ubicacionplanta;
     private javax.swing.JTextField jtxt_usuario;
     private javax.swing.JRadioButton rb_Empresa;
+    private javax.swing.JRadioButton rb_empresacliente;
     private javax.swing.JRadioButton rb_sexoF;
     private javax.swing.JRadioButton rb_sexoF1;
     private javax.swing.JRadioButton rb_sexoM;

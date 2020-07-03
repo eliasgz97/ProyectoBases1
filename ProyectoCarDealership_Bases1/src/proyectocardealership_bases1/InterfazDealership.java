@@ -235,6 +235,9 @@ public class InterfazDealership extends javax.swing.JFrame {
         jLabel96 = new javax.swing.JLabel();
         jtxt_cantidadventa = new javax.swing.JTextField();
         date_fechaventa = new com.toedter.calendar.JDateChooser();
+        jLabel116 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jt_bitacora = new javax.swing.JTable();
         btg_entidades = new javax.swing.ButtonGroup();
         btg_transmision = new javax.swing.ButtonGroup();
         jd_modificarCliente = new javax.swing.JDialog();
@@ -325,7 +328,6 @@ public class InterfazDealership extends javax.swing.JFrame {
         admin_JP = new javax.swing.JPanel();
         jToggleButton1 = new javax.swing.JToggleButton();
         jToggleButton2 = new javax.swing.JToggleButton();
-        jButton1 = new javax.swing.JButton();
         jToggleButton3 = new javax.swing.JToggleButton();
         Ingresar = new javax.swing.JPanel();
         jLabel15 = new javax.swing.JLabel();
@@ -1269,8 +1271,8 @@ public class InterfazDealership extends javax.swing.JFrame {
         });
         jPanel4.add(jRB_venta, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 680, -1, -1));
 
-        jLabel90.setText("Venta");
-        jPanel4.add(jLabel90, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 650, -1, -1));
+        jLabel90.setText("Registro en Bitácora");
+        jPanel4.add(jLabel90, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 650, -1, -1));
 
         jLabel33.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
         jLabel33.setForeground(new java.awt.Color(51, 51, 51));
@@ -1309,8 +1311,8 @@ public class InterfazDealership extends javax.swing.JFrame {
         jPanel17.add(jB_crearVenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 400, -1, -1));
 
         jLabel86.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel86.setText("Crear Venta");
-        jPanel17.add(jLabel86, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 30, -1, -1));
+        jLabel86.setText("Crear registro de venta");
+        jPanel17.add(jLabel86, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 40, -1, -1));
         jPanel17.add(jcbx_vinvehiculoventa, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 290, 180, -1));
 
         jLabel87.setText("Fecha de la compra ");
@@ -1336,14 +1338,24 @@ public class InterfazDealership extends javax.swing.JFrame {
         date_fechaventa.setDateFormatString("YYYY-MM-dd");
         jPanel17.add(date_fechaventa, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 340, 180, -1));
 
+        jLabel116.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel116.setText("BITÁCORA");
+        jPanel17.add(jLabel116, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 10, -1, -1));
+
+        jt_bitacora.setModel(new DefaultTableModel());
+        jScrollPane1.setViewportView(jt_bitacora);
+
+        jPanel17.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 10, 550, 460));
+
         javax.swing.GroupLayout jd_crearventaLayout = new javax.swing.GroupLayout(jd_crearventa.getContentPane());
         jd_crearventa.getContentPane().setLayout(jd_crearventaLayout);
         jd_crearventaLayout.setHorizontalGroup(
             jd_crearventaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel17, javax.swing.GroupLayout.PREFERRED_SIZE, 480, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addGroup(jd_crearventaLayout.createSequentialGroup()
                 .addGap(230, 230, 230)
-                .addComponent(jLabel84))
+                .addComponent(jLabel84)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(jPanel17, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jd_crearventaLayout.setVerticalGroup(
             jd_crearventaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1990,13 +2002,6 @@ public class InterfazDealership extends javax.swing.JFrame {
 
         jToggleButton2.setText("REPORTES");
 
-        jButton1.setText("BITÁCORAS");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-
         jToggleButton3.setText("INVENTARIO");
         jToggleButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -2011,12 +2016,10 @@ public class InterfazDealership extends javax.swing.JFrame {
             .addGroup(admin_JPLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jToggleButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(96, 96, 96)
                 .addComponent(jToggleButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jToggleButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(91, 91, 91)
+                .addComponent(jToggleButton3, javax.swing.GroupLayout.DEFAULT_SIZE, 109, Short.MAX_VALUE)
                 .addContainerGap())
         );
         admin_JPLayout.setVerticalGroup(
@@ -2025,13 +2028,12 @@ public class InterfazDealership extends javax.swing.JFrame {
                 .addGroup(admin_JPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(admin_JPLayout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jToggleButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 271, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(admin_JPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jToggleButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 271, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jToggleButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 271, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, admin_JPLayout.createSequentialGroup()
                         .addGap(100, 100, 100)
-                        .addGroup(admin_JPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jToggleButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 271, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jToggleButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 271, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 271, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addComponent(jToggleButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 271, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(158, Short.MAX_VALUE))
         );
 
@@ -2184,10 +2186,6 @@ public class InterfazDealership extends javax.swing.JFrame {
             Logger.getLogger(InterfazDealership.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_admin_JPMouseClicked
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jToggleButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton3ActionPerformed
         // TODO add your handling code here:
@@ -2607,11 +2605,17 @@ public class InterfazDealership extends javax.swing.JFrame {
             pst2.setString(2, jcbx_vinvehiculoventa.getSelectedItem().toString());
             pst.executeUpdate();
             pst2.executeUpdate();
-            JOptionPane.showMessageDialog(this, "Datos guardados");
+            Statement st;
+                st=cn.createStatement();
+                ResultSet rs= st.executeQuery("SELECT * FROM Venta");
+                JTable bitacora=new JTable(buildTableModel(rs));
+                DefaultTableModel modelobitacora= (DefaultTableModel)bitacora.getModel();
+                jt_bitacora.setModel(modelobitacora);
         } catch (SQLException ex) {
             Logger.getLogger(InterfazDealership.class.getName()).log(Level.SEVERE, null, ex);
             JOptionPane.showMessageDialog(this, ex.getMessage());
         }
+        
     }//GEN-LAST:event_jB_crearVentaActionPerformed
 
     private void jbt_insertarpiezaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbt_insertarpiezaActionPerformed
@@ -2890,11 +2894,18 @@ public class InterfazDealership extends javax.swing.JFrame {
                 jd_CrearCliente.setVisible(true);
                 break;
             case 9:
+                Statement st;
+                st=cn.createStatement();
+                ResultSet rs= st.executeQuery("SELECT * FROM Venta");
+                JTable bitacora=new JTable(buildTableModel(rs));
+                DefaultTableModel modelobitacora= (DefaultTableModel)bitacora.getModel();
+                jt_bitacora.setModel(modelobitacora);
                 String sqlVenta = "SELECT Correo_electronico FROM Concesionario";
                 llenarComboBox(jcbx_correoconcesionarioventa, sqlVenta);
                 String sqlcliente = "SELECT Id_cliente FROM Cliente";
                 llenarComboBox(jcbx_idclienteventa, sqlcliente);
-                String sqlvehiculo = "SELECT VIN FROM Vehiculo";
+                String sqlvehiculo = "SELECT VIN FROM Vehiculo WHERE Estado='Inventario'";
+                
                 llenarComboBox(jcbx_vinvehiculoventa, sqlvehiculo);
                 jd_crearventa.pack();
                 jd_crearventa.setModal(true);
@@ -3042,7 +3053,6 @@ public class InterfazDealership extends javax.swing.JFrame {
     private javax.swing.JButton jB_anteriorProveedoresClientes1;
     private javax.swing.JButton jB_crearVenta;
     private javax.swing.JButton jB_ejecutarCRUD;
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
@@ -3064,6 +3074,7 @@ public class InterfazDealership extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel113;
     private javax.swing.JLabel jLabel114;
     private javax.swing.JLabel jLabel115;
+    private javax.swing.JLabel jLabel116;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
@@ -3176,6 +3187,7 @@ public class InterfazDealership extends javax.swing.JFrame {
     private javax.swing.JRadioButton jRB_proveedor;
     private javax.swing.JRadioButton jRB_vehiculo;
     private javax.swing.JRadioButton jRB_venta;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JToggleButton jToggleButton1;
     private javax.swing.JToggleButton jToggleButton2;
     private javax.swing.JToggleButton jToggleButton3;
@@ -3244,6 +3256,7 @@ public class InterfazDealership extends javax.swing.JFrame {
     private javax.swing.JRadioButton jrb_market;
     private javax.swing.JRadioButton jrdb_automatico;
     private javax.swing.JRadioButton jrdb_manual;
+    private javax.swing.JTable jt_bitacora;
     private javax.swing.JTabbedPane jtp_main;
     private javax.swing.JTextField jtxt_VIN;
     private javax.swing.JTextField jtxt_cantidadventa;

@@ -26,7 +26,7 @@
                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                   <Component id="jtxt_idcliente" max="32767" attributes="0"/>
                                   <Component id="jtxt_nombrecliente" max="32767" attributes="0"/>
-                                  <Component id="jcbx_idconcesionario" alignment="0" pref="118" max="32767" attributes="0"/>
+                                  <Component id="jcbx_idconcesionariocrearcliente" alignment="0" pref="118" max="32767" attributes="0"/>
                                   <Component id="jtxt_telefonocliente" alignment="0" max="32767" attributes="0"/>
                                   <Component id="jtxt_direccioncliente" alignment="0" max="32767" attributes="0"/>
                               </Group>
@@ -89,7 +89,7 @@
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel10" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jcbx_idconcesionario" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jcbx_idconcesionariocrearcliente" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace pref="45" max="32767" attributes="0"/>
                   <Component id="jbt_crearcliente" min="-2" max="-2" attributes="0"/>
@@ -161,7 +161,7 @@
         </Component>
         <Component class="javax.swing.JTextField" name="jtxt_direccioncliente">
         </Component>
-        <Component class="javax.swing.JComboBox" name="jcbx_idconcesionario">
+        <Component class="javax.swing.JComboBox" name="jcbx_idconcesionariocrearcliente">
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
               <StringArray count="0"/>
@@ -527,7 +527,7 @@
                                       <Group type="102" attributes="0">
                                           <EmptySpace type="separate" max="-2" attributes="0"/>
                                           <Group type="103" groupAlignment="0" attributes="0">
-                                              <Component id="jcbx_codigomarca" min="-2" pref="190" max="-2" attributes="0"/>
+                                              <Component id="jcbx_codigomarcamodelo" min="-2" pref="190" max="-2" attributes="0"/>
                                               <Component id="jButton3" alignment="0" min="-2" pref="125" max="-2" attributes="0"/>
                                           </Group>
                                       </Group>
@@ -581,7 +581,7 @@
                   </Group>
                   <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jcbx_codigomarca" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jcbx_codigomarcamodelo" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
@@ -659,7 +659,7 @@
         </Component>
         <Component class="javax.swing.JTextField" name="jtxt_modelotipo">
         </Component>
-        <Component class="javax.swing.JComboBox" name="jcbx_codigomarca">
+        <Component class="javax.swing.JComboBox" name="jcbx_codigomarcamodelo">
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
               <StringArray count="0"/>
@@ -1469,7 +1469,7 @@
                   </Properties>
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                      <AbsoluteConstraints x="350" y="400" width="-1" height="-1"/>
+                      <AbsoluteConstraints x="60" y="410" width="-1" height="-1"/>
                     </Constraint>
                   </Constraints>
                 </Component>
@@ -1485,7 +1485,7 @@
                   </Properties>
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                      <AbsoluteConstraints x="210" y="400" width="-1" height="-1"/>
+                      <AbsoluteConstraints x="210" y="410" width="-1" height="-1"/>
                     </Constraint>
                   </Constraints>
                 </Component>
@@ -1604,7 +1604,7 @@
                   </Properties>
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                      <AbsoluteConstraints x="470" y="400" width="-1" height="-1"/>
+                      <AbsoluteConstraints x="470" y="410" width="-1" height="-1"/>
                     </Constraint>
                   </Constraints>
                 </Component>
@@ -1616,7 +1616,7 @@
                   </Properties>
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                      <AbsoluteConstraints x="500" y="440" width="-1" height="-1"/>
+                      <AbsoluteConstraints x="480" y="440" width="-1" height="-1"/>
                     </Constraint>
                   </Constraints>
                 </Component>
@@ -1628,7 +1628,7 @@
                   </Properties>
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                      <AbsoluteConstraints x="360" y="440" width="-1" height="-1"/>
+                      <AbsoluteConstraints x="70" y="440" width="-1" height="-1"/>
                     </Constraint>
                   </Constraints>
                 </Component>
@@ -1652,11 +1652,11 @@
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="33" green="33" red="33" type="rgb"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value="Planta de Fabricacion"/>
+                    <Property name="text" type="java.lang.String" value="Planta"/>
                   </Properties>
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                      <AbsoluteConstraints x="20" y="400" width="-1" height="-1"/>
+                      <AbsoluteConstraints x="460" y="520" width="-1" height="-1"/>
                     </Constraint>
                   </Constraints>
                 </Component>
@@ -1668,7 +1668,7 @@
                   </Properties>
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                      <AbsoluteConstraints x="70" y="440" width="-1" height="-1"/>
+                      <AbsoluteConstraints x="470" y="560" width="-1" height="-1"/>
                     </Constraint>
                   </Constraints>
                 </Component>
@@ -1740,7 +1740,7 @@
                   </Properties>
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                      <AbsoluteConstraints x="470" y="520" width="-1" height="-1"/>
+                      <AbsoluteConstraints x="360" y="410" width="-1" height="-1"/>
                     </Constraint>
                   </Constraints>
                 </Component>
@@ -1753,7 +1753,7 @@
                   </Properties>
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                      <AbsoluteConstraints x="490" y="560" width="-1" height="-1"/>
+                      <AbsoluteConstraints x="370" y="440" width="-1" height="-1"/>
                     </Constraint>
                   </Constraints>
                 </Component>
@@ -1768,7 +1768,7 @@
                   </Events>
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                      <AbsoluteConstraints x="230" y="690" width="-1" height="-1"/>
+                      <AbsoluteConstraints x="70" y="680" width="-1" height="-1"/>
                     </Constraint>
                   </Constraints>
                 </Component>
@@ -1778,7 +1778,7 @@
                   </Properties>
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                      <AbsoluteConstraints x="230" y="640" width="-1" height="-1"/>
+                      <AbsoluteConstraints x="60" y="650" width="-1" height="-1"/>
                     </Constraint>
                   </Constraints>
                 </Component>
@@ -2033,7 +2033,7 @@
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="145" max="-2" attributes="0"/>
-                          <Component id="jbt_crearcliente1" min="-2" pref="89" max="-2" attributes="0"/>
+                          <Component id="jbt_modificarrcliente" min="-2" pref="89" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="61" max="-2" attributes="0"/>
@@ -2053,9 +2053,9 @@
                                   <Component id="rb_Empresa" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                                  <Component id="jcbx_idcliente" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="jcbx_idmodificarcliente" alignment="0" max="32767" attributes="0"/>
                                   <Component id="jtxt_modificarnombrecliente" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="jcbx_idconcesionario1" alignment="0" pref="118" max="32767" attributes="0"/>
+                                  <Component id="jcbx_idconcesionariomodificarcliente" alignment="0" pref="118" max="32767" attributes="0"/>
                                   <Component id="rb_sexoF1" alignment="0" min="-2" max="-2" attributes="0"/>
                                   <Component id="jtxt_modificardireccioncliente" alignment="0" max="32767" attributes="0"/>
                                   <Component id="jtxt_modificartelefonocliente" alignment="0" max="32767" attributes="0"/>
@@ -2076,7 +2076,7 @@
                   <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel74" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jcbx_idcliente" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jcbx_idmodificarcliente" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
@@ -2110,10 +2110,10 @@
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel79" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jcbx_idconcesionario1" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jcbx_idconcesionariomodificarcliente" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="32767" attributes="0"/>
-                  <Component id="jbt_crearcliente1" min="-2" max="-2" attributes="0"/>
+                  <Component id="jbt_modificarrcliente" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
               </Group>
           </Group>
@@ -2187,7 +2187,7 @@
             <Property name="text" type="java.lang.String" value="Concesionario Correo"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JComboBox" name="jcbx_idconcesionario1">
+        <Component class="javax.swing.JComboBox" name="jcbx_idconcesionariomodificarcliente">
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
               <StringArray count="0"/>
@@ -2197,12 +2197,12 @@
             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
           </AuxValues>
         </Component>
-        <Component class="javax.swing.JButton" name="jbt_crearcliente1">
+        <Component class="javax.swing.JButton" name="jbt_modificarrcliente">
           <Properties>
             <Property name="text" type="java.lang.String" value="Guardar"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jbt_crearcliente1ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jbt_modificarrclienteActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JRadioButton" name="rb_Empresa">
@@ -2216,7 +2216,7 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="rb_EmpresaActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JComboBox" name="jcbx_idcliente">
+        <Component class="javax.swing.JComboBox" name="jcbx_idmodificarcliente">
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
               <StringArray count="0"/>
@@ -2376,7 +2376,7 @@
                                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                               <Component id="jtxt_modificarmotormodelo" alignment="0" pref="158" max="32767" attributes="0"/>
                                               <Component id="jtxt_modificarmodelotipo" alignment="0" pref="158" max="32767" attributes="0"/>
-                                              <Component id="jcbx_idmodelo" alignment="0" max="32767" attributes="0"/>
+                                              <Component id="jcbx_idmodelomodificar" alignment="0" max="32767" attributes="0"/>
                                           </Group>
                                       </Group>
                                       <Group type="102" alignment="1" attributes="0">
@@ -2410,7 +2410,7 @@
                   <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel92" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jcbx_idmodelo" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jcbx_idmodelomodificar" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
@@ -2500,14 +2500,14 @@
             <Property name="text" type="java.lang.String" value="Tipo"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JComboBox" name="jcbx_idmodelo">
+        <Component class="javax.swing.JComboBox" name="jcbx_idmodelomodificar">
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
               <StringArray count="0"/>
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jcbx_idmodeloActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jcbx_idmodelomodificarActionPerformed"/>
           </Events>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
@@ -2556,7 +2556,7 @@
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="cb_correoelectronicoconcesionario_modifciar" max="32767" attributes="0"/>
+                              <Component id="jcbx_correoelectronicoconcesionario_modificar" max="32767" attributes="0"/>
                               <Component id="jtxt_modificarnumerotelefonoconcesionario" pref="131" max="32767" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
@@ -2575,7 +2575,7 @@
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel67" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="cb_correoelectronicoconcesionario_modifciar" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jcbx_correoelectronicoconcesionario_modificar" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="1" attributes="0">
@@ -2633,7 +2633,7 @@
         </Component>
         <Component class="javax.swing.JButton" name="jbt_modificarconcesionario">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Modifciar"/>
+            <Property name="text" type="java.lang.String" value="Modificar"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jbt_modificarconcesionarioActionPerformed"/>
@@ -2669,7 +2669,7 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jbt_agregarpaisconcesionario1ActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JComboBox" name="cb_correoelectronicoconcesionario_modifciar">
+        <Component class="javax.swing.JComboBox" name="jcbx_correoelectronicoconcesionario_modificar">
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
               <StringArray count="0"/>
@@ -2701,7 +2701,7 @@
                               <Component id="jtxt_modificarubicacionplanta" alignment="0" max="32767" attributes="0"/>
                               <Component id="jtxt_modificarnombreplanta" alignment="0" max="32767" attributes="0"/>
                               <Component id="jtxt_modificartipoplanta" alignment="0" pref="143" max="32767" attributes="0"/>
-                              <Component id="cb_modificarplantaid" alignment="0" max="32767" attributes="0"/>
+                              <Component id="jcbx_modificarplantaid" alignment="0" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
@@ -2726,7 +2726,7 @@
                   <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel103" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="cb_modificarplantaid" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jcbx_modificarplantaid" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
@@ -2793,7 +2793,7 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jbt_mdificarplantadefabricacionActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JComboBox" name="cb_modificarplantaid">
+        <Component class="javax.swing.JComboBox" name="jcbx_modificarplantaid">
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
               <StringArray count="0"/>
@@ -2831,7 +2831,7 @@
                               <Component id="jtxt_modificarcantidadventa" max="32767" attributes="0"/>
                               <Component id="jcbx_modificarcorreoconcesionarioventa" max="32767" attributes="0"/>
                               <Component id="jcbx_modificaridclienteventa" max="32767" attributes="0"/>
-                              <Component id="cb_modificaridventa" alignment="0" max="32767" attributes="0"/>
+                              <Component id="jcbx_modificaridventa" alignment="0" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
@@ -2855,7 +2855,7 @@
                   <EmptySpace min="-2" pref="66" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="1" attributes="0">
                       <Component id="jLabel114" min="-2" max="-2" attributes="0"/>
-                      <Component id="cb_modificaridventa" min="-2" max="-2" attributes="0"/>
+                      <Component id="jcbx_modificaridventa" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
@@ -2887,7 +2887,7 @@
                   </Group>
                   <EmptySpace min="-2" pref="85" max="-2" attributes="0"/>
                   <Component id="jb_guardarventa" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="105" max="32767" attributes="0"/>
+                  <EmptySpace pref="61" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -2962,7 +2962,7 @@
             <Property name="text" type="java.lang.String" value="Modificar Venta"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JComboBox" name="cb_modificaridventa">
+        <Component class="javax.swing.JComboBox" name="jcbx_modificaridventa">
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
               <StringArray count="0"/>

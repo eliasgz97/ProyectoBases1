@@ -1,5 +1,6 @@
 package proyectocardealership_bases1;
 
+import com.mysql.jdbc.CallableStatement;
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.DriverManager;
@@ -11,6 +12,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.Vector;
+import java.util.concurrent.Callable;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.DefaultComboBoxModel;
@@ -2586,36 +2588,53 @@ public class InterfazDealership extends javax.swing.JFrame {
     }//GEN-LAST:event_jB_crearVentaMouseClicked
 
     private void jB_crearVentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jB_crearVentaActionPerformed
-//        Date fechaVenta;
+        try {
+            //        Date fechaVenta;
 //        fechaVenta = (Date) date_fechaventa.getDate();
 //        java.sql.Date fechaSql = new java.sql.Date(fechaVenta.getTime());
-        PreparedStatement pst;
-        PreparedStatement pst2;
-        try {
-            pst = cn.prepareStatement("INSERT INTO Venta (idVenta, CantidadVenta, Correo_Concesionario, Id_Cliente, VIN, FechaCompra) VALUES (?, ?, ?, ?, ?, ?)");
-            pst2 = cn.prepareStatement("UPDATE Vehiculo SET Estado=? WHERE VIN = ?");
-            pst.setString(1, jtxt_idventa.getText());
-            pst.setString(2, jtxt_cantidadventa.getText());
-            pst.setString(3, jcbx_correoconcesionarioventa.getSelectedItem().toString());
-            pst.setString(4, jcbx_idclienteventa.getSelectedItem().toString());
-            pst.setString(5, jcbx_vinvehiculoventa.getSelectedItem().toString());
-            //  pst.setDate(6, fechaSql);
-            pst.setString(6, ((JTextField) date_fechaventa.getDateEditor().getUiComponent()).getText());
+//        PreparedStatement pst;
+            PreparedStatement pst2;
+            CallableStatement stmt = (CallableStatement) cn.prepareCall("{call Crear_Venta (?,?,?,?,?,?)}");
+             pst2 = cn.prepareStatement("UPDATE Vehiculo SET Estado=? WHERE VIN = ?");
+            stmt.setString(1, jtxt_idventa.getText());
+            stmt.setString(2, jtxt_cantidadventa.getText());
+            stmt.setString(3, jcbx_correoconcesionarioventa.getSelectedItem().toString());
+            stmt.setString(4, jcbx_idclienteventa.getSelectedItem().toString());
+            stmt.setString(5, jcbx_vinvehiculoventa.getSelectedItem().toString());
+            stmt.setString(6, ((JTextField) date_fechaventa.getDateEditor().getUiComponent()).getText());
+            stmt.executeUpdate();
             pst2.setString(1, "Vendido");
             pst2.setString(2, jcbx_vinvehiculoventa.getSelectedItem().toString());
-            pst.executeUpdate();
             pst2.executeUpdate();
+            JOptionPane.showMessageDialog(this, "Datos agregados");
             Statement st;
-                st=cn.createStatement();
-                ResultSet rs= st.executeQuery("SELECT * FROM Venta");
-                JTable bitacora=new JTable(buildTableModel(rs));
-                DefaultTableModel modelobitacora= (DefaultTableModel)bitacora.getModel();
-                jt_bitacora.setModel(modelobitacora);
+            st = cn.createStatement();
+            ResultSet rs = st.executeQuery("SELECT * FROM Venta");
+            JTable bitacora = new JTable(buildTableModel(rs));
+            DefaultTableModel modelobitacora = (DefaultTableModel) bitacora.getModel();
+            jt_bitacora.setModel(modelobitacora);
         } catch (SQLException ex) {
             Logger.getLogger(InterfazDealership.class.getName()).log(Level.SEVERE, null, ex);
-            JOptionPane.showMessageDialog(this, ex.getMessage());
         }
-        
+//        try {
+//            pst = cn.prepareStatement("INSERT INTO Venta (idVenta, CantidadVenta, Correo_Concesionario, Id_Cliente, VIN, FechaCompra) VALUES (?, ?, ?, ?, ?, ?)");
+//           
+//            pst.setString(1, jtxt_idventa.getText());
+//            pst.setString(2, jtxt_cantidadventa.getText());
+//            pst.setString(3, jcbx_correoconcesionarioventa.getSelectedItem().toString());
+//            pst.setString(4, jcbx_idclienteventa.getSelectedItem().toString());
+//            pst.setString(5, jcbx_vinvehiculoventa.getSelectedItem().toString());
+//            //  pst.setDate(6, fechaSql);
+//            pst.setString(6, ((JTextField) date_fechaventa.getDateEditor().getUiComponent()).getText());
+//            pst2.setString(1, "Vendido");
+//            pst2.setString(2, jcbx_vinvehiculoventa.getSelectedItem().toString());
+//            pst.executeUpdate();
+//            pst2.executeUpdate();
+//        } catch (SQLException ex) {
+//            Logger.getLogger(InterfazDealership.class.getName()).log(Level.SEVERE, null, ex);
+//            JOptionPane.showMessageDialog(this, ex.getMessage());
+//        }
+
     }//GEN-LAST:event_jB_crearVentaActionPerformed
 
     private void jbt_insertarpiezaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbt_insertarpiezaActionPerformed
@@ -2895,17 +2914,17 @@ public class InterfazDealership extends javax.swing.JFrame {
                 break;
             case 9:
                 Statement st;
-                st=cn.createStatement();
-                ResultSet rs= st.executeQuery("SELECT * FROM Venta");
-                JTable bitacora=new JTable(buildTableModel(rs));
-                DefaultTableModel modelobitacora= (DefaultTableModel)bitacora.getModel();
+                st = cn.createStatement();
+                ResultSet rs = st.executeQuery("SELECT * FROM Venta");
+                JTable bitacora = new JTable(buildTableModel(rs));
+                DefaultTableModel modelobitacora = (DefaultTableModel) bitacora.getModel();
                 jt_bitacora.setModel(modelobitacora);
                 String sqlVenta = "SELECT Correo_electronico FROM Concesionario";
                 llenarComboBox(jcbx_correoconcesionarioventa, sqlVenta);
                 String sqlcliente = "SELECT Id_cliente FROM Cliente";
                 llenarComboBox(jcbx_idclienteventa, sqlcliente);
                 String sqlvehiculo = "SELECT VIN FROM Vehiculo WHERE Estado='Inventario'";
-                
+
                 llenarComboBox(jcbx_vinvehiculoventa, sqlvehiculo);
                 jd_crearventa.pack();
                 jd_crearventa.setModal(true);

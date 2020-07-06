@@ -10,6 +10,7 @@ import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.LinkedHashSet;
 import java.util.Scanner;
 import java.util.Vector;
 import java.util.concurrent.Callable;
@@ -311,22 +312,45 @@ public class InterfazDealership extends javax.swing.JFrame {
         jb_guardarventa = new javax.swing.JButton();
         date_modificarfechaventa = new com.toedter.calendar.JDateChooser();
         jLabel108 = new javax.swing.JLabel();
-        cb_modificarvinvehiculoventa = new javax.swing.JComboBox<>();
-        jLabel109 = new javax.swing.JLabel();
         jcbx_modificaridclienteventa = new javax.swing.JComboBox<>();
         jLabel112 = new javax.swing.JLabel();
-        jcbx_modificarcorreoconcesionarioventa = new javax.swing.JComboBox<>();
-        jLabel110 = new javax.swing.JLabel();
         jtxt_modificarcantidadventa = new javax.swing.JTextField();
         jLabel113 = new javax.swing.JLabel();
         jLabel114 = new javax.swing.JLabel();
         jLabel115 = new javax.swing.JLabel();
         jcbx_modificaridventa = new javax.swing.JComboBox<>();
+        jd_reportes = new javax.swing.JDialog();
+        jLabel117 = new javax.swing.JLabel();
+        jb_tendenciaxano = new javax.swing.JButton();
+        jb_tendenciaxsemana = new javax.swing.JButton();
+        jb_mayorescantidades = new javax.swing.JButton();
+        jb_mayor_rotacion = new javax.swing.JButton();
+        jb_tendenciaxmes = new javax.swing.JButton();
+        jb_mejoresmontos = new javax.swing.JButton();
+        jb_mejoresmeses = new javax.swing.JButton();
+        jButton10 = new javax.swing.JButton();
+        jLabel118 = new javax.swing.JLabel();
+        jLabel119 = new javax.swing.JLabel();
+        jLabel120 = new javax.swing.JLabel();
+        jLabel121 = new javax.swing.JLabel();
+        jLabel122 = new javax.swing.JLabel();
+        jLabel123 = new javax.swing.JLabel();
+        jLabel124 = new javax.swing.JLabel();
+        jLabel125 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jtp_main = new javax.swing.JTabbedPane();
         Cliente_JP = new javax.swing.JPanel();
-        Ubicacion_Vehiculos_JP = new javax.swing.JPanel();
+        jLabel109 = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jt_clientes = new javax.swing.JTable();
+        jcb_clientemarca = new javax.swing.JComboBox<>();
+        jcb_clientecolor = new javax.swing.JComboBox<>();
+        jcb_ubicacion = new javax.swing.JComboBox<>();
+        jb_localizar = new javax.swing.JButton();
         Informes_Ventas_JP = new javax.swing.JPanel();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        jt_informe = new javax.swing.JTable();
+        jb_informe = new javax.swing.JButton();
         admin_JP = new javax.swing.JPanel();
         jToggleButton1 = new javax.swing.JToggleButton();
         jToggleButton2 = new javax.swing.JToggleButton();
@@ -1854,11 +1878,7 @@ public class InterfazDealership extends javax.swing.JFrame {
 
         jLabel108.setText("Fecha de la compra ");
 
-        jLabel109.setText("Vin Vehiculo");
-
         jLabel112.setText("IdCliente");
-
-        jLabel110.setText("Correo Concesionario");
 
         jLabel113.setText("Monto Venta");
 
@@ -1874,28 +1894,24 @@ public class InterfazDealership extends javax.swing.JFrame {
             .addGroup(jd_modificarventaLayout.createSequentialGroup()
                 .addGroup(jd_modificarventaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jd_modificarventaLayout.createSequentialGroup()
-                        .addGap(40, 40, 40)
+                        .addGap(47, 47, 47)
                         .addGroup(jd_modificarventaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel110)
                             .addGroup(jd_modificarventaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(jLabel108)
-                                .addComponent(jLabel113, javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(jLabel109, javax.swing.GroupLayout.Alignment.TRAILING))
+                                .addComponent(jLabel113, javax.swing.GroupLayout.Alignment.TRAILING))
                             .addComponent(jLabel112)
                             .addComponent(jLabel114))
                         .addGap(38, 38, 38)
                         .addGroup(jd_modificarventaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(cb_modificarvinvehiculoventa, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(date_modificarfechaventa, javax.swing.GroupLayout.DEFAULT_SIZE, 127, Short.MAX_VALUE)
                             .addComponent(jtxt_modificarcantidadventa)
-                            .addComponent(jcbx_modificarcorreoconcesionarioventa, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jcbx_modificaridclienteventa, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jcbx_modificaridventa, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(jd_modificarventaLayout.createSequentialGroup()
                         .addGap(133, 133, 133)
                         .addComponent(jLabel115))
                     .addGroup(jd_modificarventaLayout.createSequentialGroup()
-                        .addGap(157, 157, 157)
+                        .addGap(162, 162, 162)
                         .addComponent(jb_guardarventa)))
                 .addContainerGap(92, Short.MAX_VALUE))
         );
@@ -1908,31 +1924,207 @@ public class InterfazDealership extends javax.swing.JFrame {
                 .addGroup(jd_modificarventaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel114)
                     .addComponent(jcbx_modificaridventa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(35, 35, 35)
+                .addGroup(jd_modificarventaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jcbx_modificaridclienteventa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel112))
                 .addGap(18, 18, 18)
                 .addGroup(jd_modificarventaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jd_modificarventaLayout.createSequentialGroup()
-                        .addComponent(jLabel112)
-                        .addGap(61, 61, 61)
-                        .addComponent(jLabel108))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jd_modificarventaLayout.createSequentialGroup()
-                        .addComponent(jcbx_modificaridclienteventa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addGroup(jd_modificarventaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jcbx_modificarcorreoconcesionarioventa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel110))
-                        .addGap(18, 18, 18)
-                        .addComponent(date_modificarfechaventa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(jLabel108, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(date_modificarfechaventa, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(27, 27, 27)
                 .addGroup(jd_modificarventaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel113)
                     .addComponent(jtxt_modificarcantidadventa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(25, 25, 25)
-                .addGroup(jd_modificarventaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(cb_modificarvinvehiculoventa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel109))
-                .addGap(85, 85, 85)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 143, Short.MAX_VALUE)
                 .addComponent(jb_guardarventa)
-                .addContainerGap(61, Short.MAX_VALUE))
+                .addGap(69, 69, 69))
+        );
+
+        jLabel117.setFont(new java.awt.Font("BankGothic Md BT", 1, 36)); // NOI18N
+        jLabel117.setText("REPORTES");
+
+        jb_tendenciaxano.setText("Ver vista");
+        jb_tendenciaxano.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jb_tendenciaxanoActionPerformed(evt);
+            }
+        });
+
+        jb_tendenciaxsemana.setText("Ver vista");
+        jb_tendenciaxsemana.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jb_tendenciaxsemanaActionPerformed(evt);
+            }
+        });
+
+        jb_mayorescantidades.setText("Ver vista");
+        jb_mayorescantidades.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jb_mayorescantidadesActionPerformed(evt);
+            }
+        });
+
+        jb_mayor_rotacion.setText("Ver vista");
+        jb_mayor_rotacion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jb_mayor_rotacionActionPerformed(evt);
+            }
+        });
+
+        jb_tendenciaxmes.setText("Ver vista");
+        jb_tendenciaxmes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jb_tendenciaxmesActionPerformed(evt);
+            }
+        });
+
+        jb_mejoresmontos.setText("Ver vista");
+        jb_mejoresmontos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jb_mejoresmontosActionPerformed(evt);
+            }
+        });
+
+        jb_mejoresmeses.setText("Ver vista");
+        jb_mejoresmeses.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jb_mejoresmesesActionPerformed(evt);
+            }
+        });
+
+        jButton10.setText("Ver vista");
+        jButton10.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton10ActionPerformed(evt);
+            }
+        });
+
+        jLabel118.setFont(new java.awt.Font("Sylfaen", 0, 11)); // NOI18N
+        jLabel118.setText("Tendecias de Ventas (AÑO)");
+
+        jLabel119.setFont(new java.awt.Font("Sylfaen", 0, 11)); // NOI18N
+        jLabel119.setText("Tendecias de Ventas (MES)");
+
+        jLabel120.setFont(new java.awt.Font("Sylfaen", 0, 11)); // NOI18N
+        jLabel120.setText("Mejores montos de venta y marcas");
+
+        jLabel121.setFont(new java.awt.Font("Sylfaen", 0, 11)); // NOI18N
+        jLabel121.setText("Tendecias de Ventas (SEMANA)");
+
+        jLabel122.setFont(new java.awt.Font("Sylfaen", 0, 11)); // NOI18N
+        jLabel122.setText("Mejores meses para Pick Ups");
+
+        jLabel123.setFont(new java.awt.Font("Sylfaen", 0, 11)); // NOI18N
+        jLabel123.setText("Mayores cantidades de venta y marcas");
+
+        jLabel124.setFont(new java.awt.Font("Sylfaen", 0, 11)); // NOI18N
+        jLabel124.setText("Distribuidores con rotación mas alta");
+
+        jLabel125.setFont(new java.awt.Font("Sylfaen", 0, 11)); // NOI18N
+        jLabel125.setText("Distribuidores con rotación mas baja");
+
+        javax.swing.GroupLayout jd_reportesLayout = new javax.swing.GroupLayout(jd_reportes.getContentPane());
+        jd_reportes.getContentPane().setLayout(jd_reportesLayout);
+        jd_reportesLayout.setHorizontalGroup(
+            jd_reportesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jd_reportesLayout.createSequentialGroup()
+                .addGap(94, 94, 94)
+                .addComponent(jLabel117)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(jd_reportesLayout.createSequentialGroup()
+                .addGap(32, 32, 32)
+                .addGroup(jd_reportesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jd_reportesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(jd_reportesLayout.createSequentialGroup()
+                            .addComponent(jLabel124)
+                            .addGap(58, 58, 58)
+                            .addComponent(jLabel125)
+                            .addContainerGap())
+                        .addComponent(jLabel123, javax.swing.GroupLayout.Alignment.LEADING))
+                    .addGroup(jd_reportesLayout.createSequentialGroup()
+                        .addGroup(jd_reportesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jd_reportesLayout.createSequentialGroup()
+                                .addGap(53, 53, 53)
+                                .addGroup(jd_reportesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jb_tendenciaxsemana)
+                                    .addComponent(jb_tendenciaxano)
+                                    .addComponent(jb_mayorescantidades)
+                                    .addComponent(jb_mayor_rotacion)))
+                            .addGroup(jd_reportesLayout.createSequentialGroup()
+                                .addGap(10, 10, 10)
+                                .addComponent(jLabel121))
+                            .addGroup(jd_reportesLayout.createSequentialGroup()
+                                .addGap(22, 22, 22)
+                                .addComponent(jLabel118)))
+                        .addGroup(jd_reportesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jd_reportesLayout.createSequentialGroup()
+                                .addGap(109, 109, 109)
+                                .addComponent(jb_tendenciaxmes)
+                                .addContainerGap())
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jd_reportesLayout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(jd_reportesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel120)
+                                    .addGroup(jd_reportesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jd_reportesLayout.createSequentialGroup()
+                                            .addComponent(jLabel122)
+                                            .addGap(38, 38, 38))
+                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jd_reportesLayout.createSequentialGroup()
+                                            .addComponent(jb_mejoresmeses)
+                                            .addGap(68, 68, 68))
+                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jd_reportesLayout.createSequentialGroup()
+                                            .addComponent(jButton10)
+                                            .addGap(66, 66, 66))
+                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jd_reportesLayout.createSequentialGroup()
+                                            .addComponent(jb_mejoresmontos)
+                                            .addGap(67, 67, 67))
+                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jd_reportesLayout.createSequentialGroup()
+                                            .addComponent(jLabel119)
+                                            .addGap(50, 50, 50)))))))))
+        );
+        jd_reportesLayout.setVerticalGroup(
+            jd_reportesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jd_reportesLayout.createSequentialGroup()
+                .addComponent(jLabel117)
+                .addGap(44, 44, 44)
+                .addGroup(jd_reportesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jd_reportesLayout.createSequentialGroup()
+                        .addComponent(jLabel118)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jb_tendenciaxano)
+                        .addGroup(jd_reportesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jd_reportesLayout.createSequentialGroup()
+                                .addGap(20, 20, 20)
+                                .addComponent(jLabel121))
+                            .addGroup(jd_reportesLayout.createSequentialGroup()
+                                .addGap(57, 57, 57)
+                                .addComponent(jb_tendenciaxsemana)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jLabel123, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jd_reportesLayout.createSequentialGroup()
+                        .addComponent(jLabel119)
+                        .addGap(18, 18, 18)
+                        .addComponent(jb_tendenciaxmes)
+                        .addGap(13, 13, 13)
+                        .addComponent(jLabel120)
+                        .addGap(18, 18, 18)
+                        .addComponent(jb_mejoresmontos)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel122)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
+                .addGroup(jd_reportesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jb_mayorescantidades)
+                    .addComponent(jb_mejoresmeses))
+                .addGap(25, 25, 25)
+                .addGroup(jd_reportesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel124)
+                    .addComponent(jLabel125))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jd_reportesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jb_mayor_rotacion)
+                    .addComponent(jButton10))
+                .addGap(62, 62, 62))
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -1944,46 +2136,107 @@ public class InterfazDealership extends javax.swing.JFrame {
         });
 
         Cliente_JP.setEnabled(false);
+        Cliente_JP.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Cliente_JPMouseClicked(evt);
+            }
+        });
+
+        jLabel109.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 1, 24)); // NOI18N
+        jLabel109.setText("¡LOCALIZA TU VEHICULO!");
+
+        jt_clientes.setModel(new DefaultTableModel());
+        jScrollPane2.setViewportView(jt_clientes);
+
+        jcb_clientemarca.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jcb_clientemarcaActionPerformed(evt);
+            }
+        });
+
+        jb_localizar.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
+        jb_localizar.setText("LOCALIZAR");
+        jb_localizar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jb_localizarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout Cliente_JPLayout = new javax.swing.GroupLayout(Cliente_JP);
         Cliente_JP.setLayout(Cliente_JPLayout);
         Cliente_JPLayout.setHorizontalGroup(
             Cliente_JPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 565, Short.MAX_VALUE)
+            .addGroup(Cliente_JPLayout.createSequentialGroup()
+                .addGap(137, 137, 137)
+                .addComponent(jLabel109)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(Cliente_JPLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 545, Short.MAX_VALUE)
+                .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Cliente_JPLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(Cliente_JPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jb_localizar)
+                    .addGroup(Cliente_JPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(jcb_clientemarca, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jcb_clientecolor, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jcb_ubicacion, 0, 94, Short.MAX_VALUE)))
+                .addGap(45, 45, 45))
         );
         Cliente_JPLayout.setVerticalGroup(
             Cliente_JPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 529, Short.MAX_VALUE)
+            .addGroup(Cliente_JPLayout.createSequentialGroup()
+                .addGap(28, 28, 28)
+                .addComponent(jLabel109)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(61, 61, 61)
+                .addComponent(jcb_clientemarca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(26, 26, 26)
+                .addComponent(jcb_clientecolor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(32, 32, 32)
+                .addComponent(jcb_ubicacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 78, Short.MAX_VALUE)
+                .addComponent(jb_localizar)
+                .addGap(21, 21, 21))
         );
 
         jtp_main.addTab("Cliente", Cliente_JP);
 
-        Ubicacion_Vehiculos_JP.setEnabled(false);
-
-        javax.swing.GroupLayout Ubicacion_Vehiculos_JPLayout = new javax.swing.GroupLayout(Ubicacion_Vehiculos_JP);
-        Ubicacion_Vehiculos_JP.setLayout(Ubicacion_Vehiculos_JPLayout);
-        Ubicacion_Vehiculos_JPLayout.setHorizontalGroup(
-            Ubicacion_Vehiculos_JPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 565, Short.MAX_VALUE)
-        );
-        Ubicacion_Vehiculos_JPLayout.setVerticalGroup(
-            Ubicacion_Vehiculos_JPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 529, Short.MAX_VALUE)
-        );
-
-        jtp_main.addTab("Ubicación de Vehículos", Ubicacion_Vehiculos_JP);
-
         Informes_Ventas_JP.setEnabled(false);
+
+        jt_informe.setModel(new DefaultTableModel());
+        jScrollPane3.setViewportView(jt_informe);
+
+        jb_informe.setText("Ver Informe de Ventas");
+        jb_informe.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jb_informeActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout Informes_Ventas_JPLayout = new javax.swing.GroupLayout(Informes_Ventas_JP);
         Informes_Ventas_JP.setLayout(Informes_Ventas_JPLayout);
         Informes_Ventas_JPLayout.setHorizontalGroup(
             Informes_Ventas_JPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 565, Short.MAX_VALUE)
+            .addGroup(Informes_Ventas_JPLayout.createSequentialGroup()
+                .addGap(43, 43, 43)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 651, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(52, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Informes_Ventas_JPLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jb_informe)
+                .addGap(63, 63, 63))
         );
         Informes_Ventas_JPLayout.setVerticalGroup(
             Informes_Ventas_JPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 529, Short.MAX_VALUE)
+            .addGroup(Informes_Ventas_JPLayout.createSequentialGroup()
+                .addGap(19, 19, 19)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jb_informe)
+                .addContainerGap(67, Short.MAX_VALUE))
         );
 
         jtp_main.addTab("Informes de Ventas", Informes_Ventas_JP);
@@ -2003,6 +2256,11 @@ public class InterfazDealership extends javax.swing.JFrame {
         });
 
         jToggleButton2.setText("REPORTES");
+        jToggleButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jToggleButton2ActionPerformed(evt);
+            }
+        });
 
         jToggleButton3.setText("INVENTARIO");
         jToggleButton3.addActionListener(new java.awt.event.ActionListener() {
@@ -2081,6 +2339,11 @@ public class InterfazDealership extends javax.swing.JFrame {
         jbt_login.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jbt_loginMouseClicked(evt);
+            }
+        });
+        jbt_login.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbt_loginActionPerformed(evt);
             }
         });
 
@@ -2168,31 +2431,6 @@ public class InterfazDealership extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jtp_mainMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtp_mainMouseClicked
-
-
-    }//GEN-LAST:event_jtp_mainMouseClicked
-
-    private void IngresarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_IngresarMouseClicked
-
-    }//GEN-LAST:event_IngresarMouseClicked
-
-    private void admin_JPMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_admin_JPMouseClicked
-
-        try {
-            Statement st = cn.createStatement();
-            ResultSet rs = st.executeQuery("select * from Planta_de_Fabricacion");
-            JTable table_prueba = new JTable(buildTableModel(rs));
-            JOptionPane.showMessageDialog(null, new JScrollPane(table_prueba));
-        } catch (SQLException ex) {
-            Logger.getLogger(InterfazDealership.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }//GEN-LAST:event_admin_JPMouseClicked
-
-    private void jToggleButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jToggleButton3ActionPerformed
-
     private void jB_ejecutarCRUDMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jB_ejecutarCRUDMouseClicked
         try {
             String sqlModelo = "select idModelo from Modelo";
@@ -2238,13 +2476,6 @@ public class InterfazDealership extends javax.swing.JFrame {
 
     }//GEN-LAST:event_jB_ejecutarCRUDMouseClicked
 
-    private void jToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton1ActionPerformed
-        jd_ventanaCRUD.pack();
-        jd_ventanaCRUD.setModal(true);
-        jd_ventanaCRUD.setLocationRelativeTo(this);
-        jd_ventanaCRUD.setVisible(true);
-    }//GEN-LAST:event_jToggleButton1ActionPerformed
-
     private void jbt_crearmarcaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbt_crearmarcaActionPerformed
 
         try {
@@ -2287,65 +2518,6 @@ public class InterfazDealership extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, ex.getMessage());
         }
     }//GEN-LAST:event_jbt_agregarpaisconcesionarioActionPerformed
-
-    private void jtxt_usuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtxt_usuarioActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jtxt_usuarioActionPerformed
-
-    private void jrb_clienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jrb_clienteActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jrb_clienteActionPerformed
-
-    private void jbt_loginMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jbt_loginMouseClicked
-        if (jrb_cliente.isSelected()) {
-            if (jtxt_usuario.getText().equals(clname) && jpf_contrasena.getText().equals(clpass)) {
-                jtp_main.setEnabledAt(0, false);
-                jtp_main.setEnabledAt(1, true);
-                jtp_main.setEnabledAt(2, false);
-                jtp_main.setEnabledAt(3, false);
-            } else {
-                JOptionPane.showMessageDialog(this, "Acceso denegado, revise los datos");
-            }
-
-        } else if (jrb_conse.isSelected()) {
-            if (jtxt_usuario.getText().equals(consename) && jpf_contrasena.getText().equals(consepass)) {
-
-                jtp_main.setEnabledAt(0, false);
-                jtp_main.setEnabledAt(1, true);
-                jtp_main.setEnabledAt(2, false);
-                jtp_main.setEnabledAt(3, false);
-            } else {
-                JOptionPane.showMessageDialog(this, "Acceso denegado, revise los datos");
-                System.out.println(jtxt_usuario.getText());
-                System.out.println(jpf_contrasena.getText());
-            }
-        } else if (jrb_market.isSelected()) {
-            if (jtxt_usuario.getText().equals(mkname) && jpf_contrasena.getText().equals(mkpass)) {
-                jtp_main.setEnabledAt(0, false);
-                jtp_main.setEnabledAt(1, false);
-                jtp_main.setEnabledAt(2, true);
-                jtp_main.setEnabledAt(3, false);
-            } else {
-                JOptionPane.showMessageDialog(this, "Acceso denegado, revise los datos");
-                System.out.println(jtxt_usuario.getText());
-                System.out.println(jpf_contrasena.getText());
-            }
-        } else if (jrb_admin.isSelected()) {
-            if (jtxt_usuario.getText().equals(adname) && jpf_contrasena.getText().equals(adpass)) {
-                JOptionPane.showMessageDialog(this, "Bienvenido administrador");
-                jtp_main.setEnabledAt(0, true);
-                jtp_main.setEnabledAt(1, true);
-                jtp_main.setEnabledAt(2, true);
-                jtp_main.setEnabledAt(3, true);
-
-            } else {
-                JOptionPane.showMessageDialog(this, "Acceso denegado, revise los datos");
-                System.out.println(jtxt_usuario.getText());
-                System.out.println(jpf_contrasena.getText());
-
-            }
-        }
-    }//GEN-LAST:event_jbt_loginMouseClicked
 
     private void jtxt_idmodeloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtxt_idmodeloActionPerformed
         // TODO add your handling code here:
@@ -2595,7 +2767,7 @@ public class InterfazDealership extends javax.swing.JFrame {
 //        PreparedStatement pst;
             PreparedStatement pst2;
             CallableStatement stmt = (CallableStatement) cn.prepareCall("{call Crear_Venta (?,?,?,?,?,?)}");
-             pst2 = cn.prepareStatement("UPDATE Vehiculo SET Estado=? WHERE VIN = ?");
+            pst2 = cn.prepareStatement("UPDATE Vehiculo SET Estado=? WHERE VIN = ?");
             stmt.setString(1, jtxt_idventa.getText());
             stmt.setString(2, jtxt_cantidadventa.getText());
             stmt.setString(3, jcbx_correoconcesionarioventa.getSelectedItem().toString());
@@ -2736,22 +2908,290 @@ public class InterfazDealership extends javax.swing.JFrame {
     }//GEN-LAST:event_jb_guardarventaMouseClicked
 
     private void jb_guardarventaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_guardarventaActionPerformed
-        String modificacion_sql = "UPDATE Venta SET CantidadVenta=?,Correo_Concesionario=?,Id_Cliente=?, VIN=?, FechaCompra=? WHERE idVenta=?";
+        String modificacion_sql = "UPDATE Venta SET CantidadVenta=?,Id_Cliente=?, FechaCompra=? WHERE idVenta=?";
 
         ResultSet rs = null;
         try {
             PreparedStatement pst = cn.prepareStatement(modificacion_sql);
             pst.setString(1, jtxt_modificarcantidadventa.getText());
-            pst.setString(2, jcbx_modificarcorreoconcesionarioventa.getSelectedItem().toString());
-            pst.setString(3, jcbx_modificaridclienteventa.getSelectedItem().toString());
-            pst.setString(4, cb_modificarvinvehiculoventa.getSelectedItem().toString());
-            pst.setString(5, ((JTextField) date_modificarfechaventa.getDateEditor().getUiComponent()).getText());
+            pst.setString(2, jcbx_modificaridclienteventa.getSelectedItem().toString());
+            pst.setString(3, ((JTextField) date_modificarfechaventa.getDateEditor().getUiComponent()).getText());
+            pst.setString(4, jcbx_modificaridventa.getSelectedItem().toString());
             pst.executeUpdate();
             JOptionPane.showMessageDialog(this, "Modificación exitosa");
         } catch (SQLException ex) {
             Logger.getLogger(InterfazDealership.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_jb_guardarventaActionPerformed
+
+    private void jb_tendenciaxsemanaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_tendenciaxsemanaActionPerformed
+        try {
+            Statement st = cn.createStatement();
+            ResultSet rs = st.executeQuery("select * from  Ventas_semana_marca");
+            JTable table_prueba = new JTable(buildTableModel(rs));
+            JOptionPane.showMessageDialog(null, new JScrollPane(table_prueba));
+
+        } catch (SQLException ex) {
+            Logger.getLogger(InterfazDealership.class.getName()).log(Level.SEVERE, null, ex);
+        }    }//GEN-LAST:event_jb_tendenciaxsemanaActionPerformed
+
+    private void jb_mejoresmesesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_mejoresmesesActionPerformed
+        try {
+            Statement st = cn.createStatement();
+            ResultSet rs = st.executeQuery("select * from  Ventas_PickUp");
+            JTable table_prueba = new JTable(buildTableModel(rs));
+            JOptionPane.showMessageDialog(null, new JScrollPane(table_prueba));
+
+        } catch (SQLException ex) {
+            Logger.getLogger(InterfazDealership.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_jb_mejoresmesesActionPerformed
+
+    private void jb_tendenciaxmesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_tendenciaxmesActionPerformed
+        try {
+            Statement st = cn.createStatement();
+            ResultSet rs = st.executeQuery("select * from  Ventas_mes_marca");
+            JTable table_prueba = new JTable(buildTableModel(rs));
+            JOptionPane.showMessageDialog(null, new JScrollPane(table_prueba));
+
+        } catch (SQLException ex) {
+            Logger.getLogger(InterfazDealership.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_jb_tendenciaxmesActionPerformed
+
+    private void jb_mayor_rotacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_mayor_rotacionActionPerformed
+        try {
+            Statement st = cn.createStatement();
+            ResultSet rs = st.executeQuery("select * from  Rotacion_Inventario");
+            JTable table_prueba = new JTable(buildTableModel(rs));
+            JOptionPane.showMessageDialog(null, new JScrollPane(table_prueba));
+
+        } catch (SQLException ex) {
+            Logger.getLogger(InterfazDealership.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_jb_mayor_rotacionActionPerformed
+
+    private void jb_tendenciaxanoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_tendenciaxanoActionPerformed
+        try {
+            Statement st = cn.createStatement();
+            ResultSet rs = st.executeQuery("select * from  Ventas_ano_marca");
+            JTable table_prueba = new JTable(buildTableModel(rs));
+            JOptionPane.showMessageDialog(null, new JScrollPane(table_prueba));
+
+        } catch (SQLException ex) {
+            Logger.getLogger(InterfazDealership.class.getName()).log(Level.SEVERE, null, ex);
+        }    }//GEN-LAST:event_jb_tendenciaxanoActionPerformed
+
+    private void jb_mejoresmontosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_mejoresmontosActionPerformed
+        try {
+            Statement st = cn.createStatement();
+            ResultSet rs = st.executeQuery("select * from  MejoresMontos");
+            JTable table_prueba = new JTable(buildTableModel(rs));
+            JOptionPane.showMessageDialog(null, new JScrollPane(table_prueba));
+
+        } catch (SQLException ex) {
+            Logger.getLogger(InterfazDealership.class.getName()).log(Level.SEVERE, null, ex);
+        }    }//GEN-LAST:event_jb_mejoresmontosActionPerformed
+
+    private void jb_mayorescantidadesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_mayorescantidadesActionPerformed
+        try {
+            Statement st = cn.createStatement();
+            ResultSet rs = st.executeQuery("select * from Cantidad_Ventas_Marca");
+            JTable table_prueba = new JTable(buildTableModel(rs));
+            JOptionPane.showMessageDialog(null, new JScrollPane(table_prueba));
+
+        } catch (SQLException ex) {
+            Logger.getLogger(InterfazDealership.class.getName()).log(Level.SEVERE, null, ex);
+        }    }//GEN-LAST:event_jb_mayorescantidadesActionPerformed
+
+    private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
+        try {
+            Statement st = cn.createStatement();
+            ResultSet rs = st.executeQuery("select * from  Rotacion_Inventario");
+            JTable table_prueba = new JTable(buildTableModel(rs));
+            JOptionPane.showMessageDialog(null, new JScrollPane(table_prueba));
+
+        } catch (SQLException ex) {
+            Logger.getLogger(InterfazDealership.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_jButton10ActionPerformed
+
+    private void jtp_mainMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtp_mainMouseClicked
+
+    }//GEN-LAST:event_jtp_mainMouseClicked
+
+    private void IngresarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_IngresarMouseClicked
+
+    }//GEN-LAST:event_IngresarMouseClicked
+
+    private void jbt_loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbt_loginActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jbt_loginActionPerformed
+
+    private void jbt_loginMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jbt_loginMouseClicked
+        if (jrb_cliente.isSelected()) {
+            if (jtxt_usuario.getText().equals(clname) && jpf_contrasena.getText().equals(clpass)) {
+                jtp_main.setEnabledAt(0, false);
+                jtp_main.setEnabledAt(1, true);
+                jtp_main.setEnabledAt(2, false);
+                jtp_main.setEnabledAt(3, false);
+            } else {
+                JOptionPane.showMessageDialog(this, "Acceso denegado, revise los datos");
+            }
+
+        } else if (jrb_conse.isSelected()) {
+            if (jtxt_usuario.getText().equals(consename) && jpf_contrasena.getText().equals(consepass)) {
+
+                jtp_main.setEnabledAt(0, false);
+                jtp_main.setEnabledAt(1, true);
+                jtp_main.setEnabledAt(2, false);
+                jtp_main.setEnabledAt(3, false);
+            } else {
+                JOptionPane.showMessageDialog(this, "Acceso denegado, revise los datos");
+                System.out.println(jtxt_usuario.getText());
+                System.out.println(jpf_contrasena.getText());
+            }
+        } else if (jrb_market.isSelected()) {
+            if (jtxt_usuario.getText().equals(mkname) && jpf_contrasena.getText().equals(mkpass)) {
+                jtp_main.setEnabledAt(0, false);
+                jtp_main.setEnabledAt(1, false);
+                jtp_main.setEnabledAt(2, true);
+                jtp_main.setEnabledAt(3, false);
+            } else {
+                JOptionPane.showMessageDialog(this, "Acceso denegado, revise los datos");
+                System.out.println(jtxt_usuario.getText());
+                System.out.println(jpf_contrasena.getText());
+            }
+        } else if (jrb_admin.isSelected()) {
+            if (jtxt_usuario.getText().equals(adname) && jpf_contrasena.getText().equals(adpass)) {
+                JOptionPane.showMessageDialog(this, "Bienvenido administrador");
+                jtp_main.setEnabledAt(0, true);
+                jtp_main.setEnabledAt(1, true);
+                jtp_main.setEnabledAt(2, true);
+                jtp_main.setEnabledAt(3, true);
+
+            } else {
+                JOptionPane.showMessageDialog(this, "Acceso denegado, revise los datos");
+                System.out.println(jtxt_usuario.getText());
+                System.out.println(jpf_contrasena.getText());
+
+            }
+        }
+    }//GEN-LAST:event_jbt_loginMouseClicked
+
+    private void jrb_clienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jrb_clienteActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jrb_clienteActionPerformed
+
+    private void jtxt_usuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtxt_usuarioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jtxt_usuarioActionPerformed
+
+    private void admin_JPMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_admin_JPMouseClicked
+
+        try {
+            Statement st = cn.createStatement();
+            ResultSet rs = st.executeQuery("select * from Planta_de_Fabricacion");
+            JTable table_prueba = new JTable(buildTableModel(rs));
+            JOptionPane.showMessageDialog(null, new JScrollPane(table_prueba));
+        } catch (SQLException ex) {
+            Logger.getLogger(InterfazDealership.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_admin_JPMouseClicked
+
+    private void jToggleButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jToggleButton3ActionPerformed
+
+    private void jToggleButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton2ActionPerformed
+        jd_reportes.pack();
+        jd_reportes.setModal(true);
+        jd_reportes.setLocationRelativeTo(this);
+        jd_reportes.setVisible(true);
+    }//GEN-LAST:event_jToggleButton2ActionPerformed
+
+    private void jToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton1ActionPerformed
+        jd_ventanaCRUD.pack();
+        jd_ventanaCRUD.setModal(true);
+        jd_ventanaCRUD.setLocationRelativeTo(this);
+        jd_ventanaCRUD.setVisible(true);
+    }//GEN-LAST:event_jToggleButton1ActionPerformed
+
+    private void Cliente_JPMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Cliente_JPMouseClicked
+        String sqlMarca = "select Nombre from Marca";
+
+        try {
+            ArrayList<String> colormodelo = new ArrayList();
+            ArrayList<String> ubicacion = new ArrayList();
+            llenarComboBox(jcb_clientemarca, sqlMarca);
+            String sqlColor = "Select color_modelo from Color";
+            String sqlUbicacion = "Select pais_concesionario from Pais";
+
+            PreparedStatement pst = cn.prepareStatement(sqlColor);
+            ResultSet rs = pst.executeQuery(sqlColor);
+            PreparedStatement pst2 = cn.prepareStatement(sqlUbicacion);
+            ResultSet rs2 = pst2.executeQuery(sqlUbicacion);
+
+            while (rs.next()) {
+                colormodelo.add(rs.getString("color_modelo"));
+            }
+            LinkedHashSet<String> hashSet = new LinkedHashSet<>(colormodelo);
+            ArrayList<String> listWithoutDuplicates = new ArrayList<>(hashSet);
+
+            while (rs2.next()) {
+                ubicacion.add(rs2.getString("pais_concesionario"));
+            }
+            LinkedHashSet<String> hashSet2 = new LinkedHashSet<>(ubicacion);
+            ArrayList<String> listWithoutDuplicates2 = new ArrayList<>(hashSet2);
+            //System.out.println(listWithoutDuplicates);
+            for (int i = 0; i < listWithoutDuplicates.size(); i++) {
+                jcb_clientecolor.addItem(listWithoutDuplicates.get(i));
+            }
+
+            for (int i = 0; i < listWithoutDuplicates2.size(); i++) {
+                jcb_ubicacion.addItem(listWithoutDuplicates2.get(i));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(InterfazDealership.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_Cliente_JPMouseClicked
+
+    private void jb_localizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_localizarActionPerformed
+
+        try {
+
+            CallableStatement cs = (CallableStatement) cn.prepareCall("{Call Ubicacion_Vehiculo(?, ?, ?)}");
+            cs.setString(1, jcb_clientemarca.getSelectedItem().toString());
+            cs.setString(2, jcb_clientecolor.getSelectedItem().toString());
+            cs.setString(3, jcb_ubicacion.getSelectedItem().toString());
+            ResultSet rs = cs.executeQuery();
+            JTable Localizacion = new JTable(buildTableModel(rs));
+            DefaultTableModel modelolocalizacion = (DefaultTableModel) Localizacion.getModel();
+            jt_clientes.setModel(modelolocalizacion);
+        } catch (SQLException ex) {
+            Logger.getLogger(InterfazDealership.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        // ResultSet rs = st.executeQuery("SELECT * FROM Venta");
+
+    }//GEN-LAST:event_jb_localizarActionPerformed
+
+    private void jcb_clientemarcaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcb_clientemarcaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jcb_clientemarcaActionPerformed
+
+    private void jb_informeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_informeActionPerformed
+        Statement st;
+        try {
+            st = cn.createStatement();
+            ResultSet rs = st.executeQuery("SELECT * FROM Venta");
+            JTable bitacora = new JTable(buildTableModel(rs));
+            DefaultTableModel modelobitacora = (DefaultTableModel) bitacora.getModel();
+            jt_informe.setModel(modelobitacora);
+        } catch (SQLException ex) {
+            Logger.getLogger(InterfazDealership.class.getName()).log(Level.SEVERE, null, ex);
+        }
+            
+    }//GEN-LAST:event_jb_informeActionPerformed
 
     /**
      * @param args the command line arguments
@@ -2975,6 +3415,7 @@ public class InterfazDealership extends javax.swing.JFrame {
                 break;
             case 7:
                 //Aqui Cargas los id del combobox jCB_modiCompania
+
                 String sqlModelo = "select idModelo from Modelo";
                 llenarComboBox(jcbx_idmodelomodificar, sqlModelo);
                 String sqlMarcamodificarmodelo = "select Codigo_marca from Marca";
@@ -3001,9 +3442,9 @@ public class InterfazDealership extends javax.swing.JFrame {
                 String sqlclientemodificarventa = "SELECT Id_cliente FROM Cliente";
                 llenarComboBox(jcbx_modificaridclienteventa, sqlclientemodificarventa);
                 String sqlcorreoconcesionariomodificarventa = "SELECT Correo_electronico FROM Concesionario";
-                llenarComboBox(jcbx_modificarcorreoconcesionarioventa, sqlcorreoconcesionariomodificarventa);
-                String sqlvehiculomodificarventa = "SELECT VIN FROM Vehiculo";
-                llenarComboBox(cb_modificarvinvehiculoventa, sqlvehiculomodificarventa);
+//                llenarComboBox(jcbx_modificarcorreoconcesionarioventa, sqlcorreoconcesionariomodificarventa);
+//                String sqlvehiculomodificarventa = "SELECT VIN FROM Vehiculo";
+//                llenarComboBox(cb_modificarvinvehiculoventa, sqlvehiculomodificarventa);
                 jd_modificarventa.pack();
                 jd_modificarventa.setModal(true);
                 jd_modificarventa.setLocationRelativeTo(this);
@@ -3060,18 +3501,17 @@ public class InterfazDealership extends javax.swing.JFrame {
     private javax.swing.JPanel Cliente_JP;
     private javax.swing.JPanel Informes_Ventas_JP;
     private javax.swing.JPanel Ingresar;
-    private javax.swing.JPanel Ubicacion_Vehiculos_JP;
     private javax.swing.JPanel admin_JP;
     private javax.swing.ButtonGroup btg_entidades;
     private javax.swing.ButtonGroup btg_operaciones;
     private javax.swing.ButtonGroup btg_transmision;
     private javax.swing.ButtonGroup buttonGroup1;
-    private javax.swing.JComboBox<String> cb_modificarvinvehiculoventa;
     private com.toedter.calendar.JDateChooser date_fechaventa;
     private com.toedter.calendar.JDateChooser date_modificarfechaventa;
     private javax.swing.JButton jB_anteriorProveedoresClientes1;
     private javax.swing.JButton jB_crearVenta;
     private javax.swing.JButton jB_ejecutarCRUD;
+    private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
@@ -3087,14 +3527,22 @@ public class InterfazDealership extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel108;
     private javax.swing.JLabel jLabel109;
     private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel110;
     private javax.swing.JLabel jLabel111;
     private javax.swing.JLabel jLabel112;
     private javax.swing.JLabel jLabel113;
     private javax.swing.JLabel jLabel114;
     private javax.swing.JLabel jLabel115;
     private javax.swing.JLabel jLabel116;
+    private javax.swing.JLabel jLabel117;
+    private javax.swing.JLabel jLabel118;
+    private javax.swing.JLabel jLabel119;
     private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel120;
+    private javax.swing.JLabel jLabel121;
+    private javax.swing.JLabel jLabel122;
+    private javax.swing.JLabel jLabel123;
+    private javax.swing.JLabel jLabel124;
+    private javax.swing.JLabel jLabel125;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
@@ -3207,10 +3655,21 @@ public class InterfazDealership extends javax.swing.JFrame {
     private javax.swing.JRadioButton jRB_vehiculo;
     private javax.swing.JRadioButton jRB_venta;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JToggleButton jToggleButton1;
     private javax.swing.JToggleButton jToggleButton2;
     private javax.swing.JToggleButton jToggleButton3;
     private javax.swing.JButton jb_guardarventa;
+    private javax.swing.JButton jb_informe;
+    private javax.swing.JButton jb_localizar;
+    private javax.swing.JButton jb_mayor_rotacion;
+    private javax.swing.JButton jb_mayorescantidades;
+    private javax.swing.JButton jb_mejoresmeses;
+    private javax.swing.JButton jb_mejoresmontos;
+    private javax.swing.JButton jb_tendenciaxano;
+    private javax.swing.JButton jb_tendenciaxmes;
+    private javax.swing.JButton jb_tendenciaxsemana;
     private javax.swing.ButtonGroup jbg_modificartipo;
     private javax.swing.JButton jbt_agregarcolor;
     private javax.swing.JButton jbt_agregarestilo;
@@ -3230,6 +3689,9 @@ public class InterfazDealership extends javax.swing.JFrame {
     private javax.swing.JButton jbt_mdificarplantadefabricacion;
     private javax.swing.JButton jbt_modificarconcesionario;
     private javax.swing.JButton jbt_modificarrcliente;
+    private javax.swing.JComboBox<String> jcb_clientecolor;
+    private javax.swing.JComboBox<String> jcb_clientemarca;
+    private javax.swing.JComboBox<String> jcb_ubicacion;
     private javax.swing.JComboBox<String> jcbx_codigomarcamodelo;
     private javax.swing.JComboBox<String> jcbx_codigomarcamodificarmarca;
     private javax.swing.JComboBox<String> jcbx_codigomarcamodificarmodelo;
@@ -3246,7 +3708,6 @@ public class InterfazDealership extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> jcbx_idmodificarcliente;
     private javax.swing.JComboBox<String> jcbx_idplantadefabricacionpieza;
     private javax.swing.JComboBox<String> jcbx_modelovehiculo;
-    private javax.swing.JComboBox<String> jcbx_modificarcorreoconcesionarioventa;
     private javax.swing.JComboBox<String> jcbx_modificaridclienteventa;
     private javax.swing.JComboBox<String> jcbx_modificaridventa;
     private javax.swing.JComboBox<String> jcbx_modificarplantaid;
@@ -3267,6 +3728,7 @@ public class InterfazDealership extends javax.swing.JFrame {
     private javax.swing.JDialog jd_modificarmodelo;
     private javax.swing.JDialog jd_modificarplanta;
     private javax.swing.JDialog jd_modificarventa;
+    private javax.swing.JDialog jd_reportes;
     private javax.swing.JDialog jd_ventanaCRUD;
     private javax.swing.JPasswordField jpf_contrasena;
     private javax.swing.JRadioButton jrb_admin;
@@ -3276,6 +3738,8 @@ public class InterfazDealership extends javax.swing.JFrame {
     private javax.swing.JRadioButton jrdb_automatico;
     private javax.swing.JRadioButton jrdb_manual;
     private javax.swing.JTable jt_bitacora;
+    private javax.swing.JTable jt_clientes;
+    private javax.swing.JTable jt_informe;
     private javax.swing.JTabbedPane jtp_main;
     private javax.swing.JTextField jtxt_VIN;
     private javax.swing.JTextField jtxt_cantidadventa;
